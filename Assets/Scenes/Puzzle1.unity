@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 512247018}
   - component: {fileID: 512247017}
   - component: {fileID: 512247016}
+  - component: {fileID: 512247020}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Player
@@ -798,8 +799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7559c47a1b849fc418710c4679dfd8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 512247020}
   playerSpeed: 2
   jumpHeight: 1
+  cam: {fileID: 984570612}
+  turnSmoothnessTime: 1
 --- !u!136 &512247017
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -864,6 +868,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512247014}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!143 &512247020
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512247014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &571965988
 GameObject:
   m_ObjectHideFlags: 0
