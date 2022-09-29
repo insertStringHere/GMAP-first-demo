@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class ZController : MonoBehaviour {
     private IEnumerable<Rewind> Rewinds;
@@ -18,8 +17,8 @@ public class ZController : MonoBehaviour {
         Rewinds = GetComponentsInChildren<Rewind>();
     }
 
-    void FixedUpdate() {
-        DeltaTime += Time.fixedDeltaTime;
+    void Update() {
+        DeltaTime += Time.deltaTime;
         if (DeltaTime >= (RecordInterval / RewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q))) {
             foreach (Rewind r in Rewinds)
                 r.RewindState();
