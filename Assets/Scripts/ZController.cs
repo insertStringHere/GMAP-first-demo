@@ -20,7 +20,7 @@ public class ZController : MonoBehaviour {
 
     void FixedUpdate() {
         DeltaTime += Time.fixedDeltaTime;
-        if (DeltaTime >= (RecordInterval / RewindScale) && Input.GetMouseButton(0)) {
+        if (DeltaTime >= (RecordInterval / RewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q))) {
             foreach (Rewind r in Rewinds)
                 r.RewindState();
             DeltaTime = 0;
@@ -30,7 +30,7 @@ public class ZController : MonoBehaviour {
             DeltaTime = 0;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetMouseButtonUp(0))
             foreach (Rewind r in Rewinds)
                 r.Play();
     }
