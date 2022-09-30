@@ -20,7 +20,7 @@ public class Rewind : MonoBehaviour {
         StartPos = transform.position;
         StartRot = transform.rotation;
 
-        Play();
+        Pause();
     }
 
     /// <summary>
@@ -88,6 +88,13 @@ public class Rewind : MonoBehaviour {
             if (printDebug)
                 Debug.Log($"{name} popping and applying state {States.Count + 1}");
         }
+    }
+
+    public void Reset() {
+        transform.position = StartPos;
+        transform.rotation = StartRot;
+        States.Clear();
+        Pause();
     }
 
 }
