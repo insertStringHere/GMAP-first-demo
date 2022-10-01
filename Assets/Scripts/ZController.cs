@@ -15,7 +15,6 @@ public class ZController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        Active = false; 
         DeltaTime = 0;
         if (RewindScale <= 0) RewindScale = 1f;
         Rewinds = GetComponentsInChildren<Rewind>();

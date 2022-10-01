@@ -8,7 +8,9 @@ public class Rewind : MonoBehaviour {
     public Vector3 StartForce;
 
     protected Stack<SnapState> States;
-    protected bool RigidOff; 
+    protected bool RigidOff;
+
+    private Rigidbody rb;
 
 
     [SerializeField]
@@ -19,6 +21,8 @@ public class Rewind : MonoBehaviour {
 
         StartPos = transform.position;
         StartRot = transform.rotation;
+
+        rb = GetComponent<Rigidbody>();
 
         Pause();
     }
@@ -40,7 +44,10 @@ public class Rewind : MonoBehaviour {
     public void Store() {
         States.Push(new SnapState {
             position = transform.position,
-            rotation = transform.rotation
+            rotation = transform.rotation,
+
+            velocity = rb.velocity,
+            angularVelocity = rb.angularVelocity
         });
     } 
 
@@ -49,8 +56,6 @@ public class Rewind : MonoBehaviour {
     /// force if there is no history.
     /// </summary>
     public void Play() {
-        Rigidbody rb = GetComponent<Rigidbody>();
-
         if (RigidOff) 
             RigidOff = rb.isKinematic = false;
 
@@ -59,6 +64,10 @@ public class Rewind : MonoBehaviour {
                 Debug.Log($"{name} state at 0, applying force");
             rb.AddRelativeForce(StartForce, ForceMode.Impulse);
             Store();
+        } else {
+            SnapState state = States.Peek();
+            rb.velocity = state.velocity;
+            rb.angularVelocity = state.angularVelocity;
         }
 
     }
@@ -84,6 +93,8 @@ public class Rewind : MonoBehaviour {
             Pause();
             state = States.Pop();
             transform.SetPositionAndRotation(state.position, state.rotation);
+            rb.velocity = state.velocity;
+            rb.angularVelocity = state.angularVelocity;
 
             if (printDebug)
                 Debug.Log($"{name} popping and applying state {States.Count + 1}");
@@ -102,4 +113,7 @@ public class Rewind : MonoBehaviour {
 public struct SnapState {
     public Vector3 position;
     public Quaternion rotation;
+
+    public Vector3 velocity;
+    public Vector3 angularVelocity; 
 }
