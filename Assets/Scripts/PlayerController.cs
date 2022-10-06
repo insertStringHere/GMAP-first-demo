@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] walkSounds;
+    public AudioSource timeAudio;
+    public AudioClip timeRewindSound;
     private int walkSoundIndex;
     private bool playSound = true;
     public float waitStep = .5f;
@@ -70,6 +72,16 @@ public class PlayerController : MonoBehaviour
             }
            
 
+        }
+
+        //play time rewind sound when pressing Q
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            timeAudio.PlayOneShot(timeRewindSound);
+        }
+        if(Input.GetKeyUp(KeyCode.Q))
+        {
+            timeAudio.Stop();
         }
 
         //playerVelocity.Set(Input.GetAxis("Horizontal") * playerSpeed, playerVelocity.y, Input.GetAxis("Vertical") * playerSpeed);
