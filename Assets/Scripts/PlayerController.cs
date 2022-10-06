@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     [Range(0.5f, 3)] public float mouseYSensitiviy = 1;
     private float turnSmoothSpeed;
 
+    public AudioSource audioSource;
+    public AudioClip[] walkSounds;
+    private int walkSoundIndex;
+    private bool playSound = true;
+    public float waitStep = .5f;
 
     private void Start()
     {
@@ -55,7 +60,16 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDirectionCam = Quaternion.Euler(0f, directionAngle, 0f) * Vector3.forward;
             controller.Move(moveDirectionCam.normalized * playerSpeed * Time.deltaTime);
 
-            
+            //checking to see if we can play a footstep sound
+            if(playSound)
+            {
+                walkSoundIndex = Random.Range(0, walkSounds.Length);
+                audioSource.PlayOneShot(walkSounds[walkSoundIndex]);
+                playSound = false;
+                StartCoroutine(WaitForNextStep());
+            }
+           
+
         }
 
         //playerVelocity.Set(Input.GetAxis("Horizontal") * playerSpeed, playerVelocity.y, Input.GetAxis("Vertical") * playerSpeed);
@@ -68,5 +82,12 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    //waits until the next step audio should be played
+    public IEnumerator WaitForNextStep()
+    {
+        yield return new WaitForSeconds(waitStep);
+        playSound = true;
     }
 }
