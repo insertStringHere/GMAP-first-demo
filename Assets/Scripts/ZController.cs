@@ -17,24 +17,24 @@ public class ZController : MonoBehaviour {
     void Start() {
         DeltaTime = 0;
         if (RewindScale <= 0) RewindScale = 1f;
-        Rewinds = GetComponentsInChildren<Rewind>();
+        Rewinds = GetComponentsInChildren<PhysicsRewinder>();
     }
 
     void Update() {
         if (Active) {
             DeltaTime += Time.deltaTime;
             if (DeltaTime >= (RecordInterval / RewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q))) {
-                foreach (IRewinder r in Rewinds)
-                    r.RewindState();
+                foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
+                    r.RewindState(this);
                 DeltaTime = 0;
-            } else if (DeltaTime >= RecordInterval && Rewinds.Any(r => r.NeedUpdate())) {
-                foreach (IRewinder r in Rewinds)
-                    r.Store();
+            } else if (DeltaTime >= RecordInterval && Rewinds.Any(r => r.NeedUpdate(this))) {
+                foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
+                    r.Store(this);
                 DeltaTime = 0;
             }
 
             if (Input.GetKeyUp(KeyCode.Q) || Input.GetMouseButtonUp(0))
-                foreach (IRewinder r in Rewinds)
+                foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
                     r.Play();
         }
     }
@@ -45,8 +45,10 @@ public class ZController : MonoBehaviour {
             z.Active = false;
         }
 
-        foreach (IRewinder r in Rewinds)
+        foreach (IRewinder r in Rewinds) {
+            r.enabled = true;
             r.Play();
+        }
 
         Active = true;
     }
