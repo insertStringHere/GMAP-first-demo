@@ -25,11 +25,11 @@ public class ZController : MonoBehaviour {
             DeltaTime += Time.deltaTime;
             if (DeltaTime >= (RecordInterval / RewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q))) {
                 foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
-                    r.RewindState(this);
+                    r.RewindState();
                 DeltaTime = 0;
-            } else if (DeltaTime >= RecordInterval && Rewinds.Any(r => r.NeedUpdate(this))) {
+            } else if (DeltaTime >= RecordInterval && Rewinds.Any(r => r.NeedUpdate())) {
                 foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
-                    r.Store(this);
+                    r.Store();
                 DeltaTime = 0;
             }
 
