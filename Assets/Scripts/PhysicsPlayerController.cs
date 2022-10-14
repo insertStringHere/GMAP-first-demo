@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhysicsPlayerController : MonoBehaviour
-{   
+public class PhysicsPlayerController : MonoBehaviour {
     private Rigidbody rigidBody;
 
-    public float playerAcceleration = 1.0f;
-    public float jumpAcceleration = 2.0f;
-    public Vector3 maxSpeed = new Vector3 { x = 3.0f, z = 5.0f };
+    public Vector3 playerAcceleration = new Vector3(10, 10, 20);
+    public Vector3 maxSpeed = new Vector3(3, 15, 5);
 
     [SerializeField] private GameObject ground = null;
     [SerializeField] private float maxSlope = 20f;
@@ -20,36 +18,62 @@ public class PhysicsPlayerController : MonoBehaviour
     [Range(0.5f, 3)] public float mouseYSensitiviy = 1;
 
 
-    private void Start()
-    {
+    private void Start() {
         rigidBody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
 
     }
 
-    void Update()
-    {
-        float horizontal = 0f;
-        float vertical = 0f;
-        float jump = 0f;        
-
-        if (Math.Abs(rigidBody.velocity.x) <= maxSpeed.x && Math.Abs(rigidBody.velocity.z) <= maxSpeed.z) {
-            horizontal = Input.GetAxisRaw("Horizontal") * rigidBody.mass * playerAcceleration;
-            vertical = Input.GetAxisRaw("Vertical") * rigidBody.mass * playerAcceleration;
-        }             
-
+    void Update() {
         turn.x += Input.GetAxis("Mouse X") * mouseXSensitiviy;
         turn.y += Input.GetAxis("Mouse Y") * mouseYSensitiviy;
         transform.rotation = Quaternion.Euler(0f, turn.x, 0f);
         cam.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0f);
 
-        // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && ground != null)
-            jump = jumpAcceleration * rigidBody.mass;
+        float x = Input.GetAxisRaw("Horizontal");
+        float xVel = transform.InverseTransformVector(rigidBody.velocity).x;
+        float z = Input.GetAxisRaw("Vertical");
+        float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
 
-        rigidBody.AddForce(transform.TransformVector(new Vector3(horizontal, 0f, vertical)));
+    
+        if (Math.Abs(x) > .001) {
+            if (Math.Abs(xVel) <= maxSpeed.x)
+                x *= rigidBody.mass * playerAcceleration.x;
+            else {
+                x = 0;
+                xVel = maxSpeed.x * (xVel / Math.Abs(xVel));
+            }
+        }
+
+        if (Math.Abs(z) > .001) {
+            if (Math.Abs(zVel) <= maxSpeed.z)
+                z *= rigidBody.mass * playerAcceleration.z;
+            else {
+                z = 0;
+                zVel = maxSpeed.z * (zVel / Math.Abs(zVel));
+            }
+        }
+
+        rigidBody.AddForce(transform.TransformVector(new Vector3(x, 0f, z)));
+
+
+        float jump = 0;
+        float yVel = transform.InverseTransformVector(rigidBody.velocity).y;
+
+        // Changes the height position of the player..
+
+        if(ground == null) {
+            if (Math.Abs(yVel) >= maxSpeed.y)
+                yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
+        } else if (Input.GetButtonDown("Jump"))
+            jump = playerAcceleration.y * rigidBody.mass;
+
+
         rigidBody.AddForce(new Vector3(0f, jump, 0f), ForceMode.Impulse);
+
+        rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
     }
+
 
     public void OnCollisionEnter(Collision collision) {
         if (collision.impulse.magnitude > 100) {
