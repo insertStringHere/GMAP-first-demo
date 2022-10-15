@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 495101104372354390}
   - component: {fileID: 6729364971368374685}
   - component: {fileID: 6624627177451896647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumIntact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1000717925989258456}
   - component: {fileID: 2814666966640284937}
   - component: {fileID: 1474727323240717485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumPiece_MediumJagged_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 2898585364883059010}
   - component: {fileID: 2898585364883059011}
   - component: {fileID: 2898585364883059008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumBroken_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 2898585365411601394}
   - component: {fileID: 2898585365411601396}
   - component: {fileID: 2898585365411601397}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumBroken_Large_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 5160739319890524363}
   - component: {fileID: 4654980664299138126}
   - component: {fileID: 8176314867698156681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumBase_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 7278937528925737136}
   - component: {fileID: 8307746802367696566}
   - component: {fileID: 3864738673005722636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumPiece_LargeFlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 4957199364334074450}
   - component: {fileID: 6250972167771717565}
   - component: {fileID: 5775263841601045921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumBroken_Medium_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 5041957535419131152}
   - component: {fileID: 7299520607261665429}
   - component: {fileID: 6488745339691905973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumBase_Small_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 690104210125317367}
   - component: {fileID: 1747981406512789296}
   - component: {fileID: 7915513178312605404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumPiece_MediumJagged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 1576248121167324155}
   - component: {fileID: 5964611616857632414}
   - component: {fileID: 1146361841355868664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumPiece_LargeFlat_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 912600711834620775}
   - component: {fileID: 8802503326892955432}
   - component: {fileID: 71273859087723681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumBroken_Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 700705434738155670}
   - component: {fileID: 3251630925899169587}
   - component: {fileID: 2603109589650147875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CollumIntact_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

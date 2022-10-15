@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
+    [Header("References")]
+    public Transform orientation;
+    public Rigidbody rb;
+    public AudioSource audioSource;
+    public AudioSource timeAudio;
+
     [Header("Player Movement")]
     public float moveSpeed = 1;
     public float jumpForce;
@@ -11,10 +17,15 @@ public class MovementScript : MonoBehaviour
     public float airMultiplier;
     public bool readyToJump;
 
+    [Header("Sound")]
+    public AudioClip[] walkSounds;
+    public AudioClip timeRewindSound;
+    private int walkSoundIndex;
+    private bool playSound = true;
+    public float waitStep = .5f;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
-
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -22,10 +33,6 @@ public class MovementScript : MonoBehaviour
     public LayerMask whatIsGround;
     public bool grounded;
 
-
-    [Header("References")]
-    public Transform orientation;
-    public Rigidbody rb;
 
 
     private float horizontalInput;
@@ -80,6 +87,15 @@ public class MovementScript : MonoBehaviour
         else if (!grounded)
             rb.AddForce(moveDir.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
 
+        //checking to see if we can play a footstep sound
+        if (playSound && moveDir.magnitude > 0)
+        {
+            walkSoundIndex = Random.Range(0, walkSounds.Length);
+            audioSource.PlayOneShot(walkSounds[walkSoundIndex]);
+            playSound = false;
+            StartCoroutine(WaitForNextStep());
+        }
+
     }
 
     private void SpeedControl()
@@ -106,6 +122,12 @@ public class MovementScript : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    public IEnumerator WaitForNextStep()
+    {
+        yield return new WaitForSeconds(waitStep);
+        playSound = true;
     }
 
 }

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6895570380497298412}
   - component: {fileID: 6895570380497298413}
   - component: {fileID: 6895570380497298410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block_2_Concrete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6895570381463948480}
   - component: {fileID: 6895570381463948481}
   - component: {fileID: 6895570381463948542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block_1_Concrete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 6895570381955153877}
   - component: {fileID: 6895570381955153874}
   - component: {fileID: 6895570381955153875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block_5_Concrete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
