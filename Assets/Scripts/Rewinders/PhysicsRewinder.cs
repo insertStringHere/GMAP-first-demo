@@ -6,24 +6,26 @@ public class PhysicsRewinder : IRewinder {
     public Vector3 StartForce;
     protected bool RigidOff;
 
-    private Rigidbody rb;
     private Vector3 rewindVelocity;
+    public Rigidbody rb;
+    public ZController myController;
 
 
     public override void Start() {
-        rb = GetComponent<Rigidbody>();
+        rb = rb != null ? rb : GetComponent<Rigidbody>();
+        myController = myController != null ? myController : GetComponentInParent<ZController>();
+
         base.Start();
     }
 
-    public override bool NeedUpdate(ZController controller) {
-        bool needUpdate = base.NeedUpdate(controller);
-        if(!needUpdate)
-            rewindVelocity = Vector3.zero;
+    public override bool NeedUpdate() {
+        bool needUpdate = base.NeedUpdate();
+        rewindVelocity = rb.velocity;
         return needUpdate;
     }
 
-    public override void Store(ZController controller) {
-        base.Store(controller);
+    public override void Store() {
+        base.Store();
 
         SnapState s = States.Pop();
         s.velocity = rb.velocity;
@@ -31,9 +33,9 @@ public class PhysicsRewinder : IRewinder {
         States.Push(s);
     }
 
-    public override SnapState RewindState(ZController controller) {
-        SnapState state = base.RewindState(controller);
-        rewindVelocity = -state.velocity / (controller.RecordInterval / controller.RewindScale);
+    public override SnapState RewindState() {
+        SnapState state = base.RewindState();
+        rewindVelocity = state.velocity;
         return state;
     }
 
@@ -55,7 +57,7 @@ public class PhysicsRewinder : IRewinder {
             if (printDebug)
                 Debug.Log($"{name} state at 0, applying force");
             rb.AddRelativeForce(StartForce, ForceMode.Impulse);
-            Store(null);
+            Store();
         } else {
             SnapState state = States.Peek();
             rb.velocity = state.velocity;
@@ -74,10 +76,15 @@ public class PhysicsRewinder : IRewinder {
     }
 
     public void OnCollisionStay(Collision collision) {
-        if (!Approximate(rewindVelocity, Vector3.zero) && collision.rigidbody != null) {
+        if (rb.isKinematic && collision.rigidbody != null) {
+            // F = ma = m * (dv/dt)
+            var force = rb.mass * (
+                    (States.TryPeek(out var state) ? Vector3.zero : state.velocity) - rewindVelocity);
+
             if (printDebug)
-                Debug.Log($"Collision with physics object; launch velocity = {rewindVelocity}, collision normal = {collision.contacts[0].normal}");
-            collision.rigidbody?.AddForce((rewindVelocity + -1 * collision.contacts[0].normal), ForceMode.VelocityChange);
+                Debug.Log($"Collision with physics object; force = {force}, normal: {collision.contacts[0].normal}");
+
+            collision.rigidbody.AddForce(force, ForceMode.Acceleration);
         }
     }
 }
