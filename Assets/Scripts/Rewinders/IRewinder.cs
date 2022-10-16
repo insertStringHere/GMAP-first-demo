@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class IRewinder : MonoBehaviour {
@@ -81,6 +82,10 @@ public abstract class IRewinder : MonoBehaviour {
         return Mathf.Abs(a.x - b.x) < .001f &&
                Mathf.Abs(a.y - b.y) < .001f &&
                Mathf.Abs(a.z - b.z) < .001f;
+    }
+
+    public bool HasStates() {
+        return States.Count > 0;
     }
 }
 
