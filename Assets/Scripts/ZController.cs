@@ -10,7 +10,7 @@ public class ZController : MonoBehaviour {
     [SerializeField] private float DeltaTime;
 
     public float RewindScale = 2f;
-    public float RewindLimit = 5f;
+    public float RewindLimit = -1f;
 
     public float RewindCooldown = 2f;
     [SerializeField] private float cooldown = 0f; 
@@ -37,7 +37,7 @@ public class ZController : MonoBehaviour {
                     foreach (IRewinder r in Rewinds) if (r.isActiveAndEnabled)
                             r.RewindState();
                     DeltaTime = 0;
-                } else if(DeltaTime > RewindLimit) {
+                } else if(DeltaTime > RewindLimit && RewindLimit >= 0) {
                     cooldown = RewindCooldown;
                     foreach (IRewinder r in Rewinds) if (r.isActiveAndEnabled)
                             r.Play();

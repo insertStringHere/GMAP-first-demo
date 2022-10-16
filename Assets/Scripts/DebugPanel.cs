@@ -15,6 +15,9 @@ public class DebugPanel : MonoBehaviour
     public List<TMP_InputField> Move;
     public List<TMP_InputField> Speed;
 
+    public TMP_InputField RLimit;
+    public TMP_InputField RCooldown;
+
     public PhysicsPlayerController ppc;
     public ZController zc;
 
@@ -28,6 +31,8 @@ public class DebugPanel : MonoBehaviour
         Gravity ??= components.FirstOrDefault(p => p.name == "Gravity");
         RewindSpeed ??= components.FirstOrDefault(p => p.name == "RewindSpeed");
         Drag ??= components.FirstOrDefault(p => p.name == "Drag");
+        RLimit ??= components.FirstOrDefault(p => p.name == "RewindLimit");
+        RCooldown ??= components.FirstOrDefault(p => p.name == "RewindCooldown");
         Move = new List<TMP_InputField>();
         Speed = new List<TMP_InputField>();
          
@@ -45,6 +50,8 @@ public class DebugPanel : MonoBehaviour
         Gravity.text = $"{Physics.gravity.y}";
         RewindSpeed.text = $"{zc.RecordInterval}";
         Drag.text = $"{ppc.gameObject.GetComponent<Rigidbody>().drag}";
+        RLimit.text = $"{zc.RewindLimit}";
+        RCooldown.text = $"{zc.RewindCooldown}";
 
         foreach(var p in Move) {
             p.text = ($"{new Vector3().GetType().GetField(p.name.ToLower()).GetValue(ppc.playerAcceleration)}"); 
@@ -61,6 +68,8 @@ public class DebugPanel : MonoBehaviour
             Physics.gravity = new Vector3(0, float.TryParse(Gravity.text, out float f) ? f : Physics.gravity.y);
             zc.RecordInterval = float.TryParse(RewindSpeed.text, out f) ? f : zc.RecordInterval;
             ppc.gameObject.GetComponent<Rigidbody>().drag = float.TryParse(Drag.text, out f) ? f : ppc.gameObject.GetComponent<Rigidbody>().drag;
+            zc.RewindLimit = float.TryParse(RLimit.text, out f) ? f : zc.RewindLimit;
+            zc.RewindCooldown = float.TryParse(RCooldown.text, out f) ? f : zc.RewindCooldown;
 
             ppc.maxSpeed = new Vector3(
                 float.TryParse(Speed[0].text, out f) ? f : ppc.maxSpeed.x,
