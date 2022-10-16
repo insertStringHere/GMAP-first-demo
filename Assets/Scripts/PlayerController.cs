@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 5.0f;
     public float jumpHeight = 2.0f;
     private float gravityValue = -9.81f;
+    public float MAX_VELOCITY_TOLERANCE = 100;
 
     public Transform cam;
     private Vector2 turn;
@@ -101,5 +102,30 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(waitStep);
         playSound = true;
+    }
+
+    // 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        print($"Player: {playerVelocity.magnitude}");
+
+
+        // Check if player is moving to quickly
+        if (playerVelocity.magnitude >= MAX_VELOCITY_TOLERANCE){
+            Debug.Log($"    Dead by moving to quick {playerVelocity.magnitude}");
+        }
+        // Check if object that his is moving to fast
+        if(other.gameObject.GetComponent<Rigidbody>() != null)
+        {
+            Rigidbody otherObj = other.gameObject.GetComponent<Rigidbody>();   
+
+            Debug.Log($"Player: {otherObj.velocity.magnitude}");
+
+            if(otherObj.velocity.magnitude >= MAX_VELOCITY_TOLERANCE)
+            {
+                Debug.Log($"    Dead by hit too hard {otherObj.velocity.magnitude}");
+            }      
+        }
     }
 }
