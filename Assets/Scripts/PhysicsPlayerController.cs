@@ -9,7 +9,10 @@ public class PhysicsPlayerController : MonoBehaviour {
     public Vector3 playerAcceleration = new Vector3(10, 10, 20);
     public Vector3 maxSpeed = new Vector3(3, 15, 5);
 
-    [SerializeField] private GameObject ground = null;
+    //[SerializeField] private GameObject ground = null;
+    [SerializeField] private LayerMask ground;
+    [SerializeField] private bool grounded;
+    [SerializeField] private float jump;
     [SerializeField] private float maxSlope = 20f;
 
     public Transform cam;
@@ -35,6 +38,10 @@ public class PhysicsPlayerController : MonoBehaviour {
         float z = Input.GetAxisRaw("Vertical");
         float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
 
+        //checks for ground
+        grounded = Physics.Raycast(transform.position, Vector3.down,1.1f, ground);
+        //calls jump function
+        Jump();
     
         if (Math.Abs(x) > .001) {
             if (Math.Abs(xVel) <= maxSpeed.x)
@@ -57,21 +64,29 @@ public class PhysicsPlayerController : MonoBehaviour {
         rigidBody.AddForce(transform.TransformVector(new Vector3(x, 0f, z)));
 
 
-        float jump = 0;
+        //jump = 0;
         float yVel = transform.InverseTransformVector(rigidBody.velocity).y;
 
         // Changes the height position of the player..
 
-        if(ground == null) {
-            if (Math.Abs(yVel) >= maxSpeed.y)
-                yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
-        } else if (Input.GetButtonDown("Jump"))
-            jump = playerAcceleration.y * rigidBody.mass;
+        //if(ground == null) {
+        //    if (Math.Abs(yVel) >= maxSpeed.y)
+        //        yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
+        //} else if (Input.GetButtonDown("Jump"))
+        //    jump = playerAcceleration.y * rigidBody.mass;
 
 
-        rigidBody.AddForce(new Vector3(0f, jump, 0f), ForceMode.Impulse);
+       // rigidBody.AddForce(new Vector3(0f, jump, 0f), ForceMode.Impulse);
 
         rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
+    }
+
+    void Jump()
+    {
+        if(Input.GetButtonDown("Jump") && grounded)
+        {
+            rigidBody.AddForce(0f, jump, 0f, ForceMode.Impulse);
+        }
     }
 
 
@@ -82,15 +97,15 @@ public class PhysicsPlayerController : MonoBehaviour {
         }
 
         // Calculate if on ground
-        float xAngle = Vector3.SignedAngle(Vector3.up, collision.contacts[0].normal, Vector3.right);
-        float zAngle = Vector3.SignedAngle(Vector3.up, collision.contacts[0].normal, Vector3.forward);
-        if (Math.Abs(xAngle) <= maxSlope && Math.Abs(zAngle) <= maxSlope && rigidBody.velocity.y < 0.1f) {
-            ground = collision.gameObject;
-        }
+        //float xAngle = Vector3.SignedAngle(Vector3.up, collision.contacts[0].normal, Vector3.right);
+        //float zAngle = Vector3.SignedAngle(Vector3.up, collision.contacts[0].normal, Vector3.forward);
+        //if (Math.Abs(xAngle) <= maxSlope && Math.Abs(zAngle) <= maxSlope && rigidBody.velocity.y < 0.1f) {
+        //    ground = collision.gameObject;
+        //}
     }
 
-    public void OnCollisionExit(Collision collision) {
-        if (collision.gameObject == ground)
-            ground = null;
-    }
+    //public void OnCollisionExit(Collision collision) {
+    //    if (collision.gameObject == ground)
+    //        ground = null;
+    //}
 }

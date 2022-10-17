@@ -26,7 +26,7 @@ public abstract class IRewinder : MonoBehaviour {
     /// </summary>
     /// <returns>True if the object has moved</returns>
     public virtual bool NeedUpdate() {
-        bool needUpdate = States.TryPeek(out SnapState state) && !(Approximate(state.position, transform.position) || Approximate(state.rotation.eulerAngles, transform.rotation.eulerAngles));
+        bool needUpdate = States.TryPeek(out SnapState state) && !(Approximate(state.position, transform.position) && Approximate(state.rotation.eulerAngles, transform.rotation.eulerAngles));
         if (printDebug && needUpdate)
             Debug.Log($"{name} needs movement update");
         return needUpdate;
