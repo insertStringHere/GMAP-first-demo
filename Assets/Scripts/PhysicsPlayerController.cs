@@ -6,8 +6,16 @@ using UnityEngine;
 public class PhysicsPlayerController : MonoBehaviour {
     private Rigidbody rigidBody;
 
+
+    private int TWallcount;
+    public GameObject Rock;
+    public GameObject Gate;
+    public GameObject Rock2;
+    public GameObject Bridge;
+
     public Vector3 playerAcceleration = new Vector3(10, 10, 20);
     public Vector3 maxSpeed = new Vector3(3, 15, 5);
+
 
     //[SerializeField] private GameObject ground = null;
     [SerializeField] private LayerMask ground;
@@ -69,6 +77,18 @@ public class PhysicsPlayerController : MonoBehaviour {
 
         // Changes the height position of the player..
 
+
+       
+        if (TWallcount == 1)
+        {
+            Rock.gameObject.SetActive(true);
+            Gate.gameObject.SetActive(false);
+        }
+        if (TWallcount == 2)
+        {
+            Rock2.gameObject.SetActive(true);
+        }
+
         //if(ground == null) {
         //    if (Math.Abs(yVel) >= maxSpeed.y)
         //        yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
@@ -79,6 +99,7 @@ public class PhysicsPlayerController : MonoBehaviour {
        // rigidBody.AddForce(new Vector3(0f, jump, 0f), ForceMode.Impulse);
 
         rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
+
     }
 
     void Jump()
@@ -104,8 +125,24 @@ public class PhysicsPlayerController : MonoBehaviour {
         //}
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("TWall"))
+        {
+            other.gameObject.SetActive(false);
+            TWallcount = TWallcount + 1;
+        }
+        if (other.gameObject.CompareTag("GWall"))
+        {
+            other.gameObject.SetActive(false);
+            Bridge.gameObject.SetActive(true);
+        }
+    }
+
     //public void OnCollisionExit(Collision collision) {
     //    if (collision.gameObject == ground)
     //        ground = null;
     //}
+
 }
