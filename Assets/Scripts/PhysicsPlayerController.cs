@@ -13,9 +13,6 @@ public class PhysicsPlayerController : MonoBehaviour {
     public GameObject Rock2;
     public GameObject Bridge;
 
-
-
-
     public Vector3 playerAcceleration = new Vector3(10, 10, 20);
     public Vector3 maxSpeed = new Vector3(3, 15, 5);
 
@@ -47,7 +44,6 @@ public class PhysicsPlayerController : MonoBehaviour {
         float xVel = transform.InverseTransformVector(rigidBody.velocity).x;
         float z = Input.GetAxisRaw("Vertical");
         float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
-
 
 
         if (TWallcount == 1)
@@ -90,6 +86,18 @@ public class PhysicsPlayerController : MonoBehaviour {
         float yVel = transform.InverseTransformVector(rigidBody.velocity).y;
 
         // Changes the height position of the player..
+
+
+       
+        if (TWallcount == 1)
+        {
+            Rock.gameObject.SetActive(true);
+            Gate.gameObject.SetActive(false);
+        }
+        if (TWallcount == 2)
+        {
+            Rock2.gameObject.SetActive(true);
+        }
 
         //if(ground == null) {
         //    if (Math.Abs(yVel) >= maxSpeed.y)
