@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class IRewinder : MonoBehaviour {
@@ -24,8 +25,8 @@ public abstract class IRewinder : MonoBehaviour {
     /// Checks to see if the object has moved since the last state capture.
     /// </summary>
     /// <returns>True if the object has moved</returns>
-    public virtual bool NeedUpdate(ZController controller) {
-        bool needUpdate = States.TryPeek(out SnapState state) && !(Approximate(state.position, transform.position) || Approximate(state.rotation.eulerAngles, transform.rotation.eulerAngles));
+    public virtual bool NeedUpdate() {
+        bool needUpdate = States.TryPeek(out SnapState state) && !(Approximate(state.position, transform.position) && Approximate(state.rotation.eulerAngles, transform.rotation.eulerAngles));
         if (printDebug && needUpdate)
             Debug.Log($"{name} needs movement update");
         return needUpdate;
@@ -34,7 +35,7 @@ public abstract class IRewinder : MonoBehaviour {
     /// <summary>
     /// Stores the current state of the object to the rewind stack
     /// </summary>
-    public virtual void Store(ZController controller) {
+    public virtual void Store() {
         SnapState s = new SnapState {
             position = transform.position,
             rotation = transform.rotation
@@ -47,7 +48,7 @@ public abstract class IRewinder : MonoBehaviour {
     /// Rewinds the states from the stack frame one state at a time,
     /// allowing for easier speed-up of rewind.
     /// </summary>
-    public virtual SnapState RewindState(ZController controller) {
+    public virtual SnapState RewindState() {
         SnapState state = new SnapState { Null = 1 };
 
         if (States.Count > 0) {
@@ -77,10 +78,14 @@ public abstract class IRewinder : MonoBehaviour {
     /// </summary>
     public abstract void Pause();
 
-    protected bool Approximate(Vector3 a, Vector3 b) {
+    public static bool Approximate(Vector3 a, Vector3 b) {
         return Mathf.Abs(a.x - b.x) < .001f &&
                Mathf.Abs(a.y - b.y) < .001f &&
                Mathf.Abs(a.z - b.z) < .001f;
+    }
+
+    public bool HasStates() {
+        return States.Count > 0;
     }
 }
 
