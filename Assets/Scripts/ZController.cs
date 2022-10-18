@@ -7,9 +7,13 @@ public class ZController : MonoBehaviour {
     private IEnumerable<IRewinder> Rewinds;
 
     public float RecordInterval = .2f;
-    private float DeltaTime;
+    [SerializeField] private float DeltaTime;
 
     public float RewindScale = 2f;
+    public float RewindLimit = -1f;
+
+    public float RewindCooldown = 2f;
+    [SerializeField] private float cooldown = 0f; 
 
     public bool Active;
 
@@ -23,13 +27,26 @@ public class ZController : MonoBehaviour {
     void Update() {
         if (Active) {
             DeltaTime += Time.deltaTime;
-            if (DeltaTime >= (RecordInterval / RewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q))) {
+                
+            if(cooldown > 0) {
+                cooldown -= Time.deltaTime;
+            }
+
+            if (DeltaTime >= (RecordInterval / RewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q)) && cooldown <= 0) {
+                if (Rewinds.FirstOrDefault()?.HasStates() ?? false) {
+                    foreach (IRewinder r in Rewinds) if (r.isActiveAndEnabled)
+                            r.RewindState();
+                    DeltaTime = 0;
+                } else if(DeltaTime > RewindLimit && RewindLimit >= 0) {
+                    cooldown = RewindCooldown;
+                    foreach (IRewinder r in Rewinds) if (r.isActiveAndEnabled)
+                            r.Play();
+                    DeltaTime = 0;
+                }
+                
+            } else if (DeltaTime >= RecordInterval && Rewinds.Any(r => r.NeedUpdate())) {
                 foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
-                    r.RewindState(this);
-                DeltaTime = 0;
-            } else if (DeltaTime >= RecordInterval && Rewinds.Any(r => r.NeedUpdate(this))) {
-                foreach (IRewinder r in Rewinds) if(r.isActiveAndEnabled)
-                    r.Store(this);
+                    r.Store();
                 DeltaTime = 0;
             }
 
