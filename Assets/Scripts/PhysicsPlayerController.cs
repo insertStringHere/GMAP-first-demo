@@ -7,6 +7,13 @@ public class PhysicsPlayerController : MonoBehaviour
 {   
     private Rigidbody rigidBody;
 
+    private int TWallcount;
+    public GameObject Rock;
+    public GameObject Gate;
+    public GameObject Rock2;
+    public GameObject Bridge;
+
+
     public float playerAcceleration = 1.0f;
     public float jumpAcceleration = 2.0f;
     public Vector3 maxSpeed = new Vector3 { x = 3.0f, z = 5.0f };
@@ -49,6 +56,16 @@ public class PhysicsPlayerController : MonoBehaviour
 
         rigidBody.AddForce(transform.TransformVector(new Vector3(horizontal, 0f, vertical)));
         rigidBody.AddForce(new Vector3(0f, jump, 0f), ForceMode.Impulse);
+
+        if (TWallcount == 1)
+        {
+            Rock.gameObject.SetActive(true);
+            Gate.gameObject.SetActive(false);
+        }
+        if (TWallcount == 2)
+        {
+            Rock2.gameObject.SetActive(true);
+        }
     }
 
     public void OnCollisionEnter(Collision collision) {
@@ -68,5 +85,18 @@ public class PhysicsPlayerController : MonoBehaviour
     public void OnCollisionExit(Collision collision) {
         if (collision.gameObject == ground)
             ground = null;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("TWall"))
+        {
+            other.gameObject.SetActive(false);
+            TWallcount = TWallcount + 1;
+        }
+        if (other.gameObject.CompareTag("GWall"))
+        {
+            other.gameObject.SetActive(false);
+            Bridge.gameObject.SetActive(true);
+        }
     }
 }
