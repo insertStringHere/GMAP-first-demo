@@ -16,7 +16,6 @@ public class PhysicsPlayerController : MonoBehaviour {
     public Vector3 playerAcceleration = new Vector3(10, 10, 20);
     public Vector3 maxSpeed = new Vector3(3, 15, 5);
 
-
     //[SerializeField] private GameObject ground = null;
     [SerializeField] private LayerMask ground;
     [SerializeField] private bool grounded;
@@ -45,6 +44,17 @@ public class PhysicsPlayerController : MonoBehaviour {
         float xVel = transform.InverseTransformVector(rigidBody.velocity).x;
         float z = Input.GetAxisRaw("Vertical");
         float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
+
+
+        if (TWallcount == 1)
+        {
+            Rock.gameObject.SetActive(true);
+            Gate.gameObject.SetActive(false);
+        }
+        if (TWallcount == 2)
+        {
+            Rock2.gameObject.SetActive(true);
+        }
 
         //checks for ground
         grounded = Physics.Raycast(transform.position, Vector3.down,1.1f, ground);
