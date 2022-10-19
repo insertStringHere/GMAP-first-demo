@@ -19,7 +19,7 @@ public class PhysicsPlayerController : MonoBehaviour {
     //[SerializeField] private GameObject ground = null;
     [SerializeField] private LayerMask ground;
     [SerializeField] private bool grounded;
-    [SerializeField] private float jump;
+    [SerializeField] private float jump = 20f;
     [SerializeField] private float maxSlope = 20f;
 
     public Transform cam;
@@ -57,7 +57,7 @@ public class PhysicsPlayerController : MonoBehaviour {
         }
 
         //checks for ground
-        grounded = Physics.Raycast(transform.position, Vector3.down,1.1f, ground);
+        grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, ground);
         //calls jump function
         Jump();
     
@@ -114,7 +114,7 @@ public class PhysicsPlayerController : MonoBehaviour {
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump") && grounded)
+        if(Input.GetKeyDown(KeyCode.Space) && this.grounded)
         {
             rigidBody.AddForce(0f, jump, 0f, ForceMode.Impulse);
         }

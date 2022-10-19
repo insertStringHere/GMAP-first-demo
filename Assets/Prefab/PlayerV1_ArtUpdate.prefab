@@ -122,9 +122,9 @@ MonoBehaviour:
   maxSpeed: {x: 5, y: 0, z: 3}
   ground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   grounded: 0
-  jump: 0
+  jump: 20
   maxSlope: 20
   cam: {fileID: 7299837984369537038}
   mouseXSensitiviy: 1

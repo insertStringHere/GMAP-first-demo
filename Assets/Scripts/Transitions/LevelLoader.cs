@@ -57,4 +57,11 @@ public class LevelLoader : MonoBehaviour
             // SceneManager.LoadScene(sceneIndex);
         }
     }
+
+    public void ReloadScene()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Reloading Scene...");
+        StartCoroutine(LoadLevel(sceneIndex));
+    }
 }

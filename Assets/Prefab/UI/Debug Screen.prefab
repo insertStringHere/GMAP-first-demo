@@ -1566,6 +1566,8 @@ MonoBehaviour:
   Move:
   - {fileID: 0}
   Speed: []
+  RLimit: {fileID: 0}
+  RCooldown: {fileID: 0}
   ppc: {fileID: 0}
   zc: {fileID: 0}
   panel: {fileID: 1967436960509971750}
@@ -2458,7 +2460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1967436960509971753
 RectTransform:
   m_ObjectHideFlags: 0
