@@ -30,22 +30,31 @@ public class LevelLoader : MonoBehaviour
 
     public void ChangeScene(int sceneIndex)
     {
-        if(sceneIndex >= SceneManager.sceneCount || sceneIndex < 0) 
+        if(sceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
             Debug.Log("Invalid Scene Index: Bad Warp");
+            Debug.Log($"Input:{sceneIndex}, NumScenes:{SceneManager.sceneCountInBuildSettings}");
+        }
         else
+        {
             StartCoroutine(LoadLevel(sceneIndex));
+        }
     }
 
     public void NextScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        
-        if(sceneIndex > SceneManager.sceneCount) 
+
+        if (sceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log($"Input:{sceneIndex}, NumScenes:{SceneManager.sceneCountInBuildSettings}");
             StartCoroutine(LoadLevel(0));
             // SceneManager.LoadScene(0);
+        }
         else
+        { 
             StartCoroutine(LoadLevel(sceneIndex));
             // SceneManager.LoadScene(sceneIndex);
+        }
     }
-
 }
