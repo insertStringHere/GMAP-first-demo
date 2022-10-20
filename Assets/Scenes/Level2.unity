@@ -14294,6 +14294,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7299837983897218574, guid: 8c933195130aa2d43b18be2031bd7c63, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299837983897218575, guid: 8c933195130aa2d43b18be2031bd7c63, type: 3}
+      propertyPath: maxSpeed.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299837983897218575, guid: 8c933195130aa2d43b18be2031bd7c63, type: 3}
+      propertyPath: maxSpeed.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7299837983971551454, guid: 8c933195130aa2d43b18be2031bd7c63, type: 3}
       propertyPath: m_Name
       value: PlayerV1_ArtUpdate

@@ -19,7 +19,6 @@ public class PhysicsPlayerController : MonoBehaviour {
     //[SerializeField] private GameObject ground = null;
     [SerializeField] private LayerMask ground;
     [SerializeField] private bool grounded;
-    [SerializeField] private float jump = 20f;
     [SerializeField] private float maxSlope = 20f;
 
     public Transform cam;
@@ -56,11 +55,7 @@ public class PhysicsPlayerController : MonoBehaviour {
             Rock2.gameObject.SetActive(true);
         }
 
-        //checks for ground
-        grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, ground);
-        //calls jump function
-        Jump();
-    
+
         if (Math.Abs(x) > .001) {
             if (Math.Abs(xVel) <= maxSpeed.x)
                 x *= rigidBody.mass * playerAcceleration.x;
@@ -81,14 +76,25 @@ public class PhysicsPlayerController : MonoBehaviour {
 
         rigidBody.AddForce(transform.TransformVector(new Vector3(x, 0f, z)));
 
-
-        //jump = 0;
         float yVel = transform.InverseTransformVector(rigidBody.velocity).y;
+
+        //checks for ground
+        grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, ground);
+
+        if(!grounded) {
+            if (Math.Abs(yVel) >= maxSpeed.y)
+                yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
+        }
+            
+        if (Input.GetKeyDown(KeyCode.Space) && this.grounded) {
+            rigidBody.AddForce(new Vector3(0, rigidBody.mass * playerAcceleration.y, 0), ForceMode.Impulse);
+        }
+
 
         // Changes the height position of the player..
 
 
-       
+
         if (TWallcount == 1)
         {
             Rock.gameObject.SetActive(true);
@@ -99,25 +105,10 @@ public class PhysicsPlayerController : MonoBehaviour {
             Rock2.gameObject.SetActive(true);
         }
 
-        //if(ground == null) {
-        //    if (Math.Abs(yVel) >= maxSpeed.y)
-        //        yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
-        //} else if (Input.GetButtonDown("Jump"))
-        //    jump = playerAcceleration.y * rigidBody.mass;
-
-
-       // rigidBody.AddForce(new Vector3(0f, jump, 0f), ForceMode.Impulse);
+  
 
         rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
 
-    }
-
-    void Jump()
-    {
-        if(Input.GetKeyDown(KeyCode.Space) && this.grounded)
-        {
-            rigidBody.AddForce(0f, jump, 0f, ForceMode.Impulse);
-        }
     }
 
 
