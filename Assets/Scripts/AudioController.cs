@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// A controller for player audio.
+/// </summary>
 public class AudioController : MonoBehaviour
 {
     public AudioSource audioSource;
@@ -13,17 +16,16 @@ public class AudioController : MonoBehaviour
     private int walkSoundIndex;
     private bool playSound = true;
     public float waitStep = .5f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public PhysicsPlayerController ppc;
+
+    /// <summary>
+    /// Controls player walking and time rewind sounds.
+    /// </summary>
     void Update()
     {
         //checking to see if we can play a footstep sound
-        if (playSound && Math.Abs(Input.GetAxisRaw("Horizontal")) + Math.Abs(Input.GetAxisRaw("Vertical")) > .1f) {
+        if (playSound && Math.Abs(Input.GetAxisRaw("Horizontal")) + Math.Abs(Input.GetAxisRaw("Vertical")) > .1f && ppc.grounded) {
             walkSoundIndex = Random.Range(0, walkSounds.Length);
             audioSource.PlayOneShot(walkSounds[walkSoundIndex]);
             playSound = false;
@@ -38,8 +40,12 @@ public class AudioController : MonoBehaviour
             timeAudio.Stop();
         }
     }
-
-    //waits until the next step audio should be played
+    
+    /// <summary>
+    /// A coroutine method that waits until the next step
+    /// audio should be played
+    /// </summary>
+    /// <returns>A <see cref="WaitForSeconds"/> object.</returns>
     public IEnumerator WaitForNextStep() {
         yield return new WaitForSeconds(waitStep);
         playSound = true;
