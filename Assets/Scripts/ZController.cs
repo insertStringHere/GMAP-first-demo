@@ -13,7 +13,9 @@ public class ZController : MonoBehaviour {
     public float RewindLimit = -1f;
 
     public float RewindCooldown = 2f;
-    [SerializeField] private float cooldown = 0f; 
+    [SerializeField] private float cooldown = 0f;
+
+    [SerializeField] private float approximateLeniency = .01f;    
 
     public bool Active;
 
@@ -73,5 +75,13 @@ public class ZController : MonoBehaviour {
     public void Pause() {
         foreach (IRewinder r in Rewinds)
             r.Pause();
+    }
+
+
+    public bool Approximate(Vector3 a, Vector3 b)
+    {
+        return Mathf.Abs(a.x - b.x) < approximateLeniency &&
+               Mathf.Abs(a.y - b.y) < approximateLeniency &&
+               Mathf.Abs(a.z - b.z) < approximateLeniency;
     }
 }

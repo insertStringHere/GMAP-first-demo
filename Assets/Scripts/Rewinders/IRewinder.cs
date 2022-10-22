@@ -6,6 +6,8 @@ public abstract class IRewinder : MonoBehaviour {
     public Vector3 StartPos { get; protected set; }
     public Quaternion StartRot { get; protected set; }
 
+    public ZController zController;
+
     protected Stack<SnapState> States;
 
 
@@ -18,6 +20,8 @@ public abstract class IRewinder : MonoBehaviour {
         StartPos = transform.position;
         StartRot = transform.rotation;
 
+        zController = zController is null ? GetComponentInParent<ZController>() : zController;
+
         Pause();
     }
 
@@ -26,7 +30,7 @@ public abstract class IRewinder : MonoBehaviour {
     /// </summary>
     /// <returns>True if the object has moved</returns>
     public virtual bool NeedUpdate() {
-        bool needUpdate = States.TryPeek(out SnapState state) && !(Approximate(state.position, transform.position) && Approximate(state.rotation.eulerAngles, transform.rotation.eulerAngles));
+        bool needUpdate = States.TryPeek(out SnapState state) && !(zController.Approximate(state.position, transform.position) && zController.Approximate(state.rotation.eulerAngles, transform.rotation.eulerAngles));
         if (printDebug && needUpdate)
             Debug.Log($"{name} needs movement update");
         return needUpdate;
@@ -77,12 +81,6 @@ public abstract class IRewinder : MonoBehaviour {
     /// Pauses the movement of the object
     /// </summary>
     public abstract void Pause();
-
-    public static bool Approximate(Vector3 a, Vector3 b) {
-        return Mathf.Abs(a.x - b.x) < .001f &&
-               Mathf.Abs(a.y - b.y) < .001f &&
-               Mathf.Abs(a.z - b.z) < .001f;
-    }
 
     public bool HasStates() {
         return States.Count > 0;
