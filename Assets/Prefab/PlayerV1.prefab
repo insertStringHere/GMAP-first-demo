@@ -118,14 +118,12 @@ MonoBehaviour:
   Gate: {fileID: 0}
   Rock2: {fileID: 0}
   Bridge: {fileID: 0}
-  playerAcceleration: {x: 10, y: 10, z: 20}
-  maxSpeed: {x: 3, y: 15, z: 5}
+  playerAcceleration: {x: 20, y: 5, z: 20}
+  maxSpeed: {x: 2, y: 15, z: 3}
+  grounded: 0
   ground:
     serializedVersion: 2
-    m_Bits: 0
-  grounded: 0
-  jump: 0
-  maxSlope: 20
+    m_Bits: 2147483647
   cam: {fileID: 7299837984369537038}
   mouseXSensitiviy: 1
   mouseYSensitiviy: 1
