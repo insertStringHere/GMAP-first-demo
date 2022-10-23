@@ -120,11 +120,11 @@ public class PhysicsRewinder : IRewinder {
     public void OnCollisionStay(Collision collision) {
         if (rb.isKinematic && collision.rigidbody != null) {
             // F = ma = m * (dv/dt)
-            var force = rb.mass * (
-                    (states.TryPeek(out var state) ? Vector3.zero : state.velocity) - rewindVelocity);
+            var force = rb.mass * 
+                    (((states.TryPeek(out var state) ? state.velocity : Vector3.zero) - rewindVelocity) / (zController.recordInterval / zController.rewindScale));
 
             if (printDebug)
-                Debug.Log($"Collision with physics object; force = {force}, normal: {collision.contacts[0].normal}");
+                Debug.Log($"Collision with physics object; force = {force}; {collision.contacts[0].normal}");
 
             collision.rigidbody.AddForce(force, ForceMode.Force);
         }

@@ -204,7 +204,7 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// If the impact is too high, the player will be killed.
     /// </summary>
     public void OnCollisionEnter(Collision collision) {
-        if (collision.impulse.magnitude > 100) {
+        if (collision.impulse.magnitude > 1000) {
             // kill player
             Debug.Log("U died");
         }
