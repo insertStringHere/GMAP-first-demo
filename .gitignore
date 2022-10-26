@@ -60,3 +60,8 @@ crashlytics-build.properties
 
 /UserSettings/Layouts/default-2021.dwlt
 /UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+
+docs/rtf/*
+!refman.rtf
+docs/latex/*
+!refman.pdf
