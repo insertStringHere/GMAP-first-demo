@@ -143,8 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c009d64ee62acbf4481f08ca0a667320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zController: {fileID: 0}
   printDebug: 0
-  StartForce: {x: 0, y: 0, z: 0}
+  startForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
 --- !u!54 &5632671124215611857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,9 +222,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9476754ae850fc4db2f90e20031db6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecordInterval: 0.1
-  RewindScale: 2
-  Active: 1
+  recordInterval: 0.2
+  rewindScale: 1
+  deltaTime: 0
+  rewindLimit: -1
+  rewindCooldown: 2
+  cooldown: 0
+  approximateLeniency: 0.01
+  active: 0
 --- !u!1 &7243767555360188371
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +355,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7833056694627346610}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2c032b52cd88efb4c8163312a628d6c5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

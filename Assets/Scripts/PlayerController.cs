@@ -1,8 +1,13 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-// Modified from unity docs: https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+/// <summary>
+/// Modified from unity docs: https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+/// To be removed in later versions.
+/// </summary>
+[Obsolete]
 public class PlayerController : MonoBehaviour
 {   
     public CharacterController controller;
