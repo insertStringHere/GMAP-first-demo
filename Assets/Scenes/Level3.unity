@@ -491,10 +491,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c009d64ee62acbf4481f08ca0a667320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zController: {fileID: 0}
   printDebug: 0
-  StartForce: {x: 0, y: 0, z: 0}
+  startForce: {x: 0, y: 0, z: 0}
   rb: {fileID: 0}
-  myController: {fileID: 0}
 --- !u!64 &206886880
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1504,6 +1504,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &762681645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 40.46035
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -88.5032
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.440247
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349248, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130439007620349254, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
+      propertyPath: m_Name
+      value: RoomSettings
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44b9ac9990c0ac842bd3c94b3f33f79b, type: 3}
 --- !u!1 &871774148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2381,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44f328330d4cbc48b3281aba18a2d60, type: 3}
+--- !u!1001 &1291504462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.1056004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6588612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.661367
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869156, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252822919152869162, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
+      propertyPath: m_Name
+      value: Global Volume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4547d7d6698970942bf6a18fa10287d6, type: 3}
 --- !u!1 &1352615602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,10 +2888,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c009d64ee62acbf4481f08ca0a667320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zController: {fileID: 0}
   printDebug: 0
-  StartForce: {x: 0, y: 120, z: 0}
+  startForce: {x: 0, y: 0, z: 0}
   rb: {fileID: 0}
-  myController: {fileID: 0}
 --- !u!1 &1530954822
 GameObject:
   m_ObjectHideFlags: 0
