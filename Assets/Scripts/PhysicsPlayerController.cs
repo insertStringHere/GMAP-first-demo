@@ -12,13 +12,6 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// </summary>
     private Rigidbody rigidBody;
 
-    //Don't know what these are
-    private int TWallcount;
-    public GameObject Rock;
-    public GameObject Gate;
-    public GameObject Rock2;
-    public GameObject Bridge;
-
     /// <summary>
     /// A <see cref="Vector3"/> containing the accelleration value for the player in each direction.
     /// </summary>
@@ -77,18 +70,6 @@ public class PhysicsPlayerController : MonoBehaviour {
     void Update() {
         UpdateCamera();
 
-
-        // Someone document what this is
-        if (TWallcount == 1)
-        {
-            Rock.gameObject.SetActive(true);
-            Gate.gameObject.SetActive(false);
-        }
-        if (TWallcount == 2)
-        {
-            Rock2.gameObject.SetActive(true);
-        }
-
         // Extract player velocities
         float xVel = transform.InverseTransformVector(rigidBody.velocity).x;
         float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
@@ -100,16 +81,6 @@ public class PhysicsPlayerController : MonoBehaviour {
         // Apply the velocities after doing movement
         rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
 
-        // Like, please; I'm so confused
-        if (TWallcount == 1)
-        {
-            Rock.gameObject.SetActive(true);
-            Gate.gameObject.SetActive(false);
-        }
-        if (TWallcount == 2)
-        {
-            Rock2.gameObject.SetActive(true);
-        }
     }
 
     /// <summary>
@@ -207,21 +178,6 @@ public class PhysicsPlayerController : MonoBehaviour {
         if (collision.impulse.magnitude > 1000) {
             // kill player
             Debug.Log("U died");
-        }
-    }
-
-    // Not sure what this does
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("TWall"))
-        {
-            other.gameObject.SetActive(false);
-            TWallcount = TWallcount + 1;
-        }
-        if (other.gameObject.CompareTag("GWall"))
-        {
-            other.gameObject.SetActive(false);
-            Bridge.gameObject.SetActive(true);
         }
     }
 
