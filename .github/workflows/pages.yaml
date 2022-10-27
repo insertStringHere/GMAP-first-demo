@@ -35,10 +35,7 @@ jobs:
         run: sudo apt-get install doxygen -y
         shell: bash 
       - name: Compile Documentation
-        run:  | 
-          doxygen ./docConfig
-          cd ./docs/latex
-          make
+        run:  doxygen ./docConfig
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
