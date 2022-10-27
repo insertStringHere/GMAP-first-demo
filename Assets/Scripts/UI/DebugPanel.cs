@@ -149,7 +149,7 @@ public class DebugPanel : MonoBehaviour
             );
         }
 
-        if (Input.GetKeyDown(KeyCode.F1)) {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             // Die in a pit, unity.
             if(panel.active = !panel.active) {
                 Cursor.lockState = CursorLockMode.Confined;
