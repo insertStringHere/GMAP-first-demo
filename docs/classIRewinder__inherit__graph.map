@@ -1,0 +1,5 @@
+<map id="IRewinder" name="IRewinder">
+<area shape="rect" id="node1" title="An abstraction of the rewinder functionality for use with a ZController to rewind an object." alt="" coords="28,80,115,107"/>
+<area shape="rect" id="node3" href="$classPhysicsRewinder.html" title="An implementation of IRewinder made for operating with Rigidbody physics." alt="" coords="5,155,137,181"/>
+<area shape="rect" id="node2" title=" " alt="" coords="9,5,133,32"/>
+</map>
