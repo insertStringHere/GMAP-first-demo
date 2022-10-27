@@ -31,9 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen -y
+        shell: bash 
       - name: Compile Documentation
-        run: |
-            doxygen ./docConfig
+        run:  doxygen ./docConfig
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
