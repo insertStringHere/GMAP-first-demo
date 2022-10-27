@@ -8,18 +8,18 @@ using UnityEngine;
 /// </summary>
 public class PhysicsPlayerController : MonoBehaviour {
     /// <summary>
-    /// The the attachee <see cref="GameObject"/>'s <see cref="Rigidbody"/>.
+    /// The attachee <see cref="GameObject"/>'s <see cref="Rigidbody"/>.
     /// </summary>
     private Rigidbody rigidBody;
 
     /// <summary>
     /// A <see cref="Vector3"/> containing the accelleration value for the player in each direction.
     /// </summary>
-    public Vector3 playerAcceleration = new Vector3(10, 10, 20);
+    public Vector3 playerAcceleration = new Vector3(10, 5, 10);
     /// <summary>
     /// A <see cref="Vector3"/> containing the maximum absolute velocity that the player can go in any direction.
     /// </summary>
-    public Vector3 maxSpeed = new Vector3(3, 15, 5);
+    public Vector3 maxSpeed = new Vector3(4, 15, 4);
     /// <summary>
     /// A <see cref="bool"/> representing whether or not the player is currently touching a ground.
     /// </summary>
