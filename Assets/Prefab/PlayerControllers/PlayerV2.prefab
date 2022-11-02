@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7299837983897218575}
   - component: {fileID: 7299837983897218574}
   - component: {fileID: 2401894002441286056}
+  - component: {fileID: 8618108093388516232}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Player
@@ -114,10 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1202cf0fb5bbb4fb5fbef309f30da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rock: {fileID: 0}
-  Gate: {fileID: 0}
-  Rock2: {fileID: 0}
-  Bridge: {fileID: 0}
   playerAcceleration: {x: 2, y: 5, z: 2}
   maxSpeed: {x: 6, y: 15, z: 6}
   grounded: 0
@@ -239,6 +236,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8618108093388516232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299837983897218588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd28d0d1b9e46c4fb11a191a975b2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2401894002441286056}
+  walkSounds:
+  - {fileID: 8300000, guid: a7bdaf36e63391545b96e4a7e24f773a, type: 3}
+  - {fileID: 8300000, guid: f9e51727ef922c140bcbad4e3c51ca80, type: 3}
+  - {fileID: 8300000, guid: 76468c5f9ad8cb543af04bd327912191, type: 3}
+  - {fileID: 8300000, guid: 445ff65c4f3c2b946b9b98d5b9c827cd, type: 3}
+  - {fileID: 8300000, guid: 12334fe9933aeb04b9cf7c7621e6644b, type: 3}
+  timeAudio: {fileID: 2401894002441286056}
+  timeRewindSound: {fileID: 8300000, guid: 6d0e3d1a57c992a4ab4d476955b9d7f1, type: 3}
+  waitStep: 0.5
+  ppc: {fileID: 0}
 --- !u!1 &7299837983971551454
 GameObject:
   m_ObjectHideFlags: 0
