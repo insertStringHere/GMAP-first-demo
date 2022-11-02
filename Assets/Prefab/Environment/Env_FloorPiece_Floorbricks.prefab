@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8058614489836463934}
   - component: {fileID: 5201943886269010932}
   - component: {fileID: 56441180696247636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Env_FloorPiece_Floorbricks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,6 +167,10 @@ PrefabInstance:
       value: Env_FloorPiece_bricksEnds
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9fb78b6833302df469b35124f0445dc9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9fb78b6833302df469b35124f0445dc9, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -243,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9fb78b6833302df469b35124f0445dc9, type: 3}
       propertyPath: m_Name
       value: Env_FloorPiece_bricksEnds (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9fb78b6833302df469b35124f0445dc9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9fb78b6833302df469b35124f0445dc9, type: 3}
       propertyPath: m_IsActive

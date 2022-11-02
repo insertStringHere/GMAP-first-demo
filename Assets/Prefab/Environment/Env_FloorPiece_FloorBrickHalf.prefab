@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2590432098124981147}
   - component: {fileID: 294958345072318289}
   - component: {fileID: 2369514677256914724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Env_FloorPiece_FloorBrickHalf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,6 +167,10 @@ PrefabInstance:
       value: Env_FloorPiece_BricksHalf
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9eee979ea3032b64b863e8090315452d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9eee979ea3032b64b863e8090315452d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -243,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9eee979ea3032b64b863e8090315452d, type: 3}
       propertyPath: m_Name
       value: Env_FloorPiece_BricksHalf (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9eee979ea3032b64b863e8090315452d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9eee979ea3032b64b863e8090315452d, type: 3}
       propertyPath: m_IsActive

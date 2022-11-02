@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8162575105058898947}
   - component: {fileID: 6243041893826654409}
   - component: {fileID: 7071066323871473770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Env_FloorPiece_Trim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5594387688179683612}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39998654, y: 0.39998654, z: 0.39998654}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
