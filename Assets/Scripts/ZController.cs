@@ -106,7 +106,7 @@ public class ZController : MonoBehaviour {
                 // If there are states to rewind, apply them
                 if (rewinds.FirstOrDefault()?.HasStates() ?? false) {
                     foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled)
-                            r.RewindState();
+                            r.RewindState((int)(deltaTime / (recordInterval / rewindScale)));
                     deltaTime = 0;
                 // If there aren't and player exceeded the limit, then set the cooldown
                 // and play the objects.
@@ -116,9 +116,8 @@ public class ZController : MonoBehaviour {
                             r.Play();
                     deltaTime = 0;
                 }
-            // If it's time to capture a state and any IRewinders had a motion update, capture
-            // the next state
-            } else if (deltaTime >= recordInterval && rewinds.Any(r => r.NeedUpdate())) {
+            // If it's time to capture a state, capture the next state
+            } else if (deltaTime >= recordInterval) {
                 foreach (IRewinder r in rewinds) if(r.isActiveAndEnabled)
                     r.Store();
                 deltaTime = 0;

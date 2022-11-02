@@ -43,10 +43,10 @@ public class PhysicsRewinder : IRewinder {
     public override void Store() {
         base.Store();
 
-        // If the state list is empty, p an i c
-        SnapState s = states.Peek();
-        s.velocity = rb.velocity;
-        s.angularVelocity = rb.angularVelocity;
+        if (states.TryPeek(out SnapState s) && s.frameNumber == frameNumber) {
+            s.velocity = rb.velocity;
+            s.angularVelocity = rb.angularVelocity;
+        }
     }
 
     /// <summary>
@@ -55,9 +55,10 @@ public class PhysicsRewinder : IRewinder {
     /// Sets the rewind velocity to the popped <see cref="SnapState"/>'s
     /// velocity.
     /// </summary>
+    /// <param name="count"><inheritdoc/></param>
     /// <returns><inheritdoc/></returns>
-    public override SnapState RewindState() {
-        SnapState state = base.RewindState();
+    public override SnapState RewindState(int count) {
+        SnapState state = base.RewindState(count);
         rewindVelocity = state?.velocity ?? Vector3.zero;
         return state;
     }
