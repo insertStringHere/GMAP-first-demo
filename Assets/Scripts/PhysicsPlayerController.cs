@@ -90,8 +90,8 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// </summary>
     public void UpdateCamera()
     {
-        turn.x += Input.GetAxis("Mouse X") * mouseXSensitiviy;
-        turn.y += Input.GetAxis("Mouse Y") * mouseYSensitiviy;
+        turn.x += Input.GetAxis("Mouse X") * mouseXSensitiviy * Time.deltaTime * 100;
+        turn.y += Input.GetAxis("Mouse Y") * mouseYSensitiviy * Time.deltaTime * 100;
         transform.rotation = Quaternion.Euler(0f, turn.x, 0f);
         cam.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0f);
     }
@@ -115,7 +115,7 @@ public class PhysicsPlayerController : MonoBehaviour {
             // Check if the velocity is within the speed bounds
             if (Math.Abs(xVel) <= maxSpeed.x)
                 // if it is, then set the force.
-                x *= rigidBody.mass * playerAcceleration.x;
+                x *= rigidBody.mass * playerAcceleration.x * Time.deltaTime;
             else
             {
                 // if not, there will be no force and the speed needs to be
@@ -132,7 +132,7 @@ public class PhysicsPlayerController : MonoBehaviour {
             // Check if the velocity is within the speed bounds
             if (Math.Abs(zVel) <= maxSpeed.z)
                 // if it is, then set the force.
-                z *= rigidBody.mass * playerAcceleration.z;
+                z *= rigidBody.mass * playerAcceleration.z * Time.deltaTime;
             else
             {
                 // if not, there will be no force and the speed needs to be
