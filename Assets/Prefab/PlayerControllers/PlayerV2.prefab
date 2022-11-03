@@ -258,7 +258,7 @@ MonoBehaviour:
   timeAudio: {fileID: 2401894002441286056}
   timeRewindSound: {fileID: 8300000, guid: 6d0e3d1a57c992a4ab4d476955b9d7f1, type: 3}
   waitStep: 0.5
-  ppc: {fileID: 0}
+  ppc: {fileID: 7299837983897218575}
 --- !u!1 &7299837983971551454
 GameObject:
   m_ObjectHideFlags: 0
