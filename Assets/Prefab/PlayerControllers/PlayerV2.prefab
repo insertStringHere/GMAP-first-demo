@@ -115,15 +115,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1202cf0fb5bbb4fb5fbef309f30da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAcceleration: {x: 2, y: 5, z: 2}
-  maxSpeed: {x: 6, y: 15, z: 6}
+  playerAcceleration: {x: 500, y: 5, z: 500}
+  maxSpeed: {x: 1000, y: 15, z: 1000}
   grounded: 0
   ground:
     serializedVersion: 2
     m_Bits: 2147483647
   cam: {fileID: 7299837984369537038}
-  mouseXSensitiviy: 1
-  mouseYSensitiviy: 1
+  mouseXSensitiviy: 2
+  mouseYSensitiviy: 2
 --- !u!54 &7299837983897218574
 Rigidbody:
   m_ObjectHideFlags: 0

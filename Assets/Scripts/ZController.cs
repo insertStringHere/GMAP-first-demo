@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 
 /// <summary>
 /// A script to control all <see cref="IRewinder"/>s in the current <see cref="GameObject"/>'s children
