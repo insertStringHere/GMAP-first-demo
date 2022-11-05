@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Unity.VisualScripting;
 //using UnityEditor.SearchService;
 
 /// <summary>
@@ -180,6 +182,20 @@ public class ZController : MonoBehaviour {
 
         timeRemaining = timeAllowance;
         active = true;
+
+        // Set additional elements to use the new ZController
+        UnityEngine.Object o;
+        if ((o = FindObjectOfType<DebugPanel>()) != null)
+            (o as DebugPanel).zc = this;
+        if ((o = FindObjectOfType<RewindTimeBar>()) != null)
+            (o as RewindTimeBar).zc = this;
+    
+
+        
+        if((o = FindObjectOfType<DebugPanel>().zc) != null)
+                (o as DebugPanel).zc = this;
+
+
     }
 
     /// <summary>
