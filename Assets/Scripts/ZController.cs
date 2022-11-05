@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Unity.VisualScripting;
 //using UnityEditor.SearchService;
 
 /// <summary>
@@ -30,6 +32,10 @@ public class ZController : MonoBehaviour {
     /// the record interval and the rewind limit
     /// </summary>
     [SerializeField] private float deltaTime;
+    /// <summary>
+    /// A variable to keep track of if the rewind buttons are being pressed;
+    /// </summary>
+    private bool rewinding;
 
     /// <summary>
     /// How long in seconds a rewind can be held at a fully rewound state before
@@ -50,7 +56,20 @@ public class ZController : MonoBehaviour {
     /// A measure of how close to zero a vector needs to be for a child <see cref="IRewinder"/>
     /// to consider it to be zero; use primarily for <see cref="IRewinder.NeedUpdate"/>.
     /// </summary>
-    public float approximateLeniency = .01f;    
+    public float approximateLeniency = .01f;
+
+    /// <summary>
+    /// How much time in seconds the player has with this <see cref="ZController"/> before they can't use 
+    /// it anymore. 0 means disabled.
+    /// </summary>
+    public float timeAllowance = 0f;
+    
+    /// <summary>
+    /// The internal tracking of how much time the player has with the <see cref="ZController"/>
+    /// </summary>
+    public float timeRemaining; 
+
+
 
     /// <summary>
     /// A boolean to determine whether or not this controller is active.
@@ -67,8 +86,21 @@ public class ZController : MonoBehaviour {
     /// </summary>
     void Start() {
         deltaTime = 0;
+        timeRemaining = timeAllowance; 
         if (rewindScale <= 0) rewindScale = 1f;
         rewinds = GetComponentsInChildren<PhysicsRewinder>();
+    }
+
+    /// <summary>
+    /// Captures the input for rewinding and continues playing the scene
+    /// if the keys released.
+    /// </summary>
+    private void Update() {
+        rewinding = Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q);
+
+        // Finally, if the player stopped rewinding, then play the states
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetMouseButtonUp(0))
+            foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
     }
 
     /// <summary>
@@ -86,47 +118,49 @@ public class ZController : MonoBehaviour {
     /// If there is an IRewinder that is still moving, all IRewinders
     /// capture their current states.
     /// </item>
-    /// <item>
-    /// If the player releases the rewind, then play all IRewinders,
-    /// allowing them to continue motion.
-    /// </item>
     /// </list>
     /// </summary>
-    void Update() {
+    void FixedUpdate() {
         if (active) {
-            deltaTime += Time.deltaTime;
+            deltaTime += Time.fixedDeltaTime;
              
             // Decrement the cooldown if necessary
             if(cooldown > 0) {
-                cooldown -= Time.deltaTime;
+                cooldown -= Time.fixedDeltaTime;
             }
 
             // If it's time to rewind a state and the player is trying to rewind a state
-            if (deltaTime >= (recordInterval / rewindScale) && (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Q)) && cooldown <= 0) {
+            if (deltaTime >= (recordInterval / rewindScale) &&
+                timeRemaining >= 0 && 
+                rewinding && 
+                cooldown <= 0) {
                 // If there are states to rewind, apply them
                 if (rewinds.FirstOrDefault()?.HasStates() ?? false) {
-                    foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled)
-                            r.RewindState((int)(deltaTime / (recordInterval / rewindScale)));
+                    foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.RewindState((int)(deltaTime / (recordInterval / rewindScale)));
                     deltaTime = 0;
+
+                }
                 // If there aren't and player exceeded the limit, then set the cooldown
                 // and play the objects.
-                } else if(deltaTime > rewindLimit && rewindLimit >= 0) {
+                else if (deltaTime > rewindLimit && rewindLimit >= 0) {
                     cooldown = rewindCooldown;
-                    foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled)
-                            r.Play();
+                    foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
                     deltaTime = 0;
                 }
-            // If it's time to capture a state, capture the next state
+                
+                if(timeAllowance > 0)
+                    timeRemaining -= Time.fixedDeltaTime; 
+                
+                if(timeRemaining <= 0)
+                    foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
+                // If it's time to capture a state, capture the next state
             } else if (deltaTime >= recordInterval) {
-                foreach (IRewinder r in rewinds) if(r.isActiveAndEnabled)
-                    r.Store();
+                foreach (IRewinder r in rewinds) if(r.isActiveAndEnabled) r.Store();
                 deltaTime = 0;
             }
 
-            // Finally, if the player stopped rewinding, then play the states
-            if (Input.GetKeyUp(KeyCode.Q) || Input.GetMouseButtonUp(0))
-                foreach (IRewinder r in rewinds) if(r.isActiveAndEnabled)
-                    r.Play();
+            
+
         }
     }
     
@@ -146,7 +180,22 @@ public class ZController : MonoBehaviour {
             r.Play();
         }
 
+        timeRemaining = timeAllowance;
         active = true;
+
+        // Set additional elements to use the new ZController
+        UnityEngine.Object o;
+        if ((o = FindObjectOfType<DebugPanel>()) != null)
+            (o as DebugPanel).zc = this;
+        if ((o = FindObjectOfType<RewindTimeBar>()) != null)
+            (o as RewindTimeBar).zc = this;
+    
+
+        
+        if((o = FindObjectOfType<DebugPanel>().zc) != null)
+                (o as DebugPanel).zc = this;
+
+
     }
 
     /// <summary>
