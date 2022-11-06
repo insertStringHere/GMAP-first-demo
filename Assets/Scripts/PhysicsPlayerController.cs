@@ -25,6 +25,11 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// </summary>
     public bool grounded;
 
+    /// <summary>
+    /// A <see cref="bool"/> representing whether or not the player is using force to move.
+    /// </summary>
+    public bool useForce = true;
+
 
     // Does this need to be instance scope?
     [SerializeField] private LayerMask ground;
@@ -92,12 +97,17 @@ public class PhysicsPlayerController : MonoBehaviour {
         float xVel = transform.InverseTransformVector(rigidBody.velocity).x;
         float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
         float yVel = transform.InverseTransformVector(rigidBody.velocity).y;
-        
-        DoMovement(ref xVel, ref zVel);
+
+        //choose method of movement.
+        if(useForce)
+            PlayerMove();
+        else
+            DoMovement(ref xVel, ref zVel);
+
         DoJump(ref yVel);
 
         // Apply the velocities after doing movement
-        rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
+        //rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
     }
 
     /// <summary>
@@ -158,6 +168,29 @@ public class PhysicsPlayerController : MonoBehaviour {
 
         // Add the force, translated to match the current rotation of the player object.
         rigidBody.MovePosition(transform.position + new Vector3(xVel * Time.fixedDeltaTime, 0, zVel * Time.fixedDeltaTime) + transform.TransformDirection(horizontalInput));
+ 
+    }
+    /// <summary>
+    /// Calculates the players x and z movement using <see cref="rigidBody.AddForce"/> by multiplying the <see cref="playerAcceleration"/>
+    /// by the mass of the player. If there is no input, the velocity of the player is devided by 1.1 every physics update.
+    /// </summary>
+    void PlayerMove()
+    {
+        //chacks for player input.
+        if(MathF.Abs(horizontalInput.x) > 0.01f || MathF.Abs(horizontalInput.z) > 0.01f)
+        {
+            //checks if player is below max speed, then adds force in the inputed direction
+            if (MathF.Abs(rigidBody.velocity.x) < maxSpeed.x && MathF.Abs(rigidBody.velocity.z) < maxSpeed.z)
+                rigidBody.AddForce(transform.TransformDirection(new Vector3(horizontalInput.x * playerAcceleration.x * rigidBody.mass, 0f, horizontalInput.z * playerAcceleration.z * rigidBody.mass)));
+            //if above max speed, sets the velocity in the indicated direction. This is to fix missed input bugs.
+            else
+                rigidBody.velocity = transform.TransformDirection(new Vector3(horizontalInput.x * maxSpeed.x, rigidBody.velocity.y, horizontalInput.z * maxSpeed.z));
+        }
+        else
+        {
+            //deccelerates player when there is no move input.
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x / 1.1f, rigidBody.velocity.y, rigidBody.velocity.z / 1.1f);
+        }
     }
 
     /// <summary>

@@ -74,6 +74,11 @@ public class DebugPanel : MonoBehaviour
     public GameObject panel;
 
     /// <summary>
+    /// the toggle to choose to used force movement over kinematic movement;
+    /// </summary>
+    public Toggle UseForce;
+
+    /// <summary>
     /// Set up all of the elements. If they have not been set in the editor,
     /// they will be extracted from the children of the panel <see cref="GameObject"/>.
     /// For each element, the corresponding value is pulled from game data and populated
@@ -111,6 +116,7 @@ public class DebugPanel : MonoBehaviour
         RLimit.text = $"{zc.rewindLimit}";
         RCooldown.text = $"{zc.rewindCooldown}";
         Leniency.text = $"{zc.approximateLeniency}";
+        UseForce.isOn = ppc.useForce;
 
         foreach(var p in Move) {
             p.text = ($"{new Vector3().GetType().GetField(p.name.ToLower()).GetValue(ppc.playerAcceleration)}"); 
@@ -147,6 +153,8 @@ public class DebugPanel : MonoBehaviour
                 float.TryParse(Move[1].text, out f) ? f : ppc.playerAcceleration.y,
                 float.TryParse(Move[2].text, out f) ? f : ppc.playerAcceleration.z
             );
+
+            ppc.useForce = UseForce.isOn;
         }
 
         if (Input.GetKeyDown(KeyCode.Z)) {
