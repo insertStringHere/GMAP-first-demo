@@ -88,7 +88,7 @@ public class ZController : MonoBehaviour {
         deltaTime = 0;
         timeRemaining = timeAllowance; 
         if (rewindScale <= 0) rewindScale = 1f;
-        rewinds = GetComponentsInChildren<PhysicsRewinder>();
+        rewinds = GetComponentsInChildren<IRewinder>();
     }
 
     /// <summary>
@@ -189,12 +189,6 @@ public class ZController : MonoBehaviour {
             (o as DebugPanel).zc = this;
         if ((o = FindObjectOfType<RewindTimeBar>()) != null)
             (o as RewindTimeBar).zc = this;
-    
-
-        
-        if((o = FindObjectOfType<DebugPanel>().zc) != null)
-                (o as DebugPanel).zc = this;
-
 
     }
 
