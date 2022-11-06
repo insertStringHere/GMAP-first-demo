@@ -115,15 +115,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1202cf0fb5bbb4fb5fbef309f30da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAcceleration: {x: 500, y: 5, z: 500}
-  maxSpeed: {x: 1000, y: 15, z: 1000}
+  playerAcceleration: {x: 100, y: 3, z: 100}
+  maxSpeed: {x: 10, y: 15, z: 10}
   grounded: 0
+  useForce: 1
   ground:
     serializedVersion: 2
     m_Bits: 2147483647
   cam: {fileID: 7299837984369537038}
-  mouseXSensitiviy: 2
-  mouseYSensitiviy: 2
+  mouseXSensitiviy: 3
+  mouseYSensitiviy: 3
+  horizontalInput: {x: 0, y: 0, z: 0}
+  jump: 0
 --- !u!54 &7299837983897218574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -139,7 +142,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!82 &2401894002441286056
 AudioSource:
   m_ObjectHideFlags: 0
