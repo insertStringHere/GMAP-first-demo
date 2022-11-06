@@ -63,6 +63,8 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// </summary>
     [SerializeField] private bool jump;
 
+    [SerializeField] private float SlowMultiplier = 1.1f;
+
 
     /// <summary>
     /// Attempts to set the <see cref="Rigidbody"/> and camera <see cref="Transform"/> if not set within the editor,
@@ -189,7 +191,7 @@ public class PhysicsPlayerController : MonoBehaviour {
         else
         {
             //deccelerates player when there is no move input.
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x / 1.1f, rigidBody.velocity.y, rigidBody.velocity.z / 1.1f);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x / SlowMultiplier, rigidBody.velocity.y, rigidBody.velocity.z / SlowMultiplier);
         }
     }
 
