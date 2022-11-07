@@ -173,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &32954043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -302,6 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &34441888
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -566,6 +570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &48724664
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -830,6 +836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &74666182
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -959,6 +967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &120477894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1185,6 +1195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &183012092
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1283,7 +1295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &192177793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,9 +1311,11 @@ MonoBehaviour:
   Gravity: {fileID: 1187646824}
   RewindSpeed: {fileID: 1963235509}
   Drag: {fileID: 437130080}
-  Move: {fileID: 2137450284}
-  Jump: {fileID: 324598774}
+  Move:
+  - {fileID: 0}
   Speed: []
+  RLimit: {fileID: 0}
+  RCooldown: {fileID: 0}
   ppc: {fileID: 1363707065}
   zc: {fileID: 1755197170}
   panel: {fileID: 1682022037}
@@ -1711,6 +1725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &252597015
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1840,6 +1856,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &267387384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2322,6 +2340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &391049761
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2555,6 +2575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &421818464
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4711,6 +4733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1025302029
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5199,6 +5223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1124715955
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6046,6 +6072,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1291420278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6212,6 +6240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1357661773
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6516,10 +6546,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1202cf0fb5bbb4fb5fbef309f30da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAcceleration: 20
-  jumpAcceleration: 10
+  Rock: {fileID: 0}
+  Gate: {fileID: 0}
+  Rock2: {fileID: 0}
+  Bridge: {fileID: 0}
+  playerAcceleration: {x: 10, y: 10, z: 20}
   maxSpeed: {x: 1, y: 1.8, z: 1}
-  ground: {fileID: 1755197169}
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  grounded: 0
+  jump: 0
   maxSlope: 20
   cam: {fileID: 1034534050}
   mouseXSensitiviy: 1
@@ -7387,6 +7424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1505694869
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7795,6 +7834,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603218506}
   m_CullTransparentMesh: 1
+--- !u!1001 &1640732350
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1967436960141509178, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_Name
+      value: Debug Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967436960141509182, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fee5d389ccc49cd4fbe6030e683ceafe, type: 3}
 --- !u!1 &1647528647
 GameObject:
   m_ObjectHideFlags: 0
@@ -7845,6 +7981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1647528650
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8232,7 +8370,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RecordInterval: 0.1
+  DeltaTime: 0
   RewindScale: 2
+  RewindLimit: -1
+  RewindCooldown: 2
+  cooldown: 0
   Active: 1
 --- !u!114 &1755197171
 MonoBehaviour:
@@ -8892,6 +9034,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &1997755715
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9231,6 +9375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!65 &2005383391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9785,6 +9931,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &2146778503
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9979,6 +10127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 1
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!33 &8244197853183073628
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10454,6 +10604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!54 &8244197854002440503
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10497,6 +10649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   printDebug: 0
   StartForce: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  myController: {fileID: 0}
 --- !u!33 &8244197854161002882
 MeshFilter:
   m_ObjectHideFlags: 0
