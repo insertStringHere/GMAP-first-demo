@@ -1,0 +1,27 @@
+var classPlayerController =
+[
+    [ "OnTriggerEnter", "classPlayerController.html#a2a0510e318c75ef04e45b4ece3bd31cd", null ],
+    [ "Start", "classPlayerController.html#ae1117d9c4da3193181cddad2c814e467", null ],
+    [ "Update", "classPlayerController.html#ae8bc83dffb99867a04be016473ed2c43", null ],
+    [ "WaitForNextStep", "classPlayerController.html#a7021b379249d434bc76418c18fa02307", null ],
+    [ "audioSource", "classPlayerController.html#a87c421c67c2b3736edd1753ec135f23a", null ],
+    [ "cam", "classPlayerController.html#a7a748851c027a65931ad197b48dd2316", null ],
+    [ "controller", "classPlayerController.html#afefcef558683eb0b7260f1f36035789e", null ],
+    [ "gravityValue", "classPlayerController.html#a82881ad34341a5e071f4ca6cc903837a", null ],
+    [ "groundedPlayer", "classPlayerController.html#a84753718035dedf392c4b4ad5542e5d6", null ],
+    [ "jumpHeight", "classPlayerController.html#a1f5dfe5afd998f509dbb405800619b6d", null ],
+    [ "MAX_VELOCITY_TOLERANCE", "classPlayerController.html#a0a726751e278a3e32b6492e0ff8942d9", null ],
+    [ "mouseXSensitiviy", "classPlayerController.html#a898d38e40687b6afeb96f980be653e6d", null ],
+    [ "mouseYSensitiviy", "classPlayerController.html#a39f37f6c03d3383bf5a655ac58be5e92", null ],
+    [ "playerSpeed", "classPlayerController.html#ad7f03e37ff7be11e361f8f45526fabad", null ],
+    [ "playerVelocity", "classPlayerController.html#a855b4f2a28ae2e58c624128ff65ed994", null ],
+    [ "playSound", "classPlayerController.html#ad5a50be9099664636d104dfc5361c04c", null ],
+    [ "timeAudio", "classPlayerController.html#aa73004233ddfdf0c7e0b594c5721bdf6", null ],
+    [ "timeRewindSound", "classPlayerController.html#a525f17d89f5f7cfa72149b30b80fec45", null ],
+    [ "turn", "classPlayerController.html#ad2fe75d7c5aff25adbb3f89e6134ac23", null ],
+    [ "turnSmoothnessTime", "classPlayerController.html#abe342515930e8af3f6cfa3496317a6f2", null ],
+    [ "turnSmoothSpeed", "classPlayerController.html#ae2ecbf1aea7d1cb2d571838ebf77afef", null ],
+    [ "waitStep", "classPlayerController.html#ac1bb52316e852186361cae7c229e2a8f", null ],
+    [ "walkSoundIndex", "classPlayerController.html#a12c8bb422df29dbdc797f46c6295cc12", null ],
+    [ "walkSounds", "classPlayerController.html#a04291a56b4b18f2342fbb9439c079097", null ]
+];

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Archived/Level1Archived.unity
+    guid: 3721192007001fd4594a647ae3be9b41
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: eda6a6f12152bfe45a68a78b31cbe446
+  - enabled: 1
+    path: Assets/Scenes/Physics_Player_testScene.unity
+    guid: 36054ccf2cff3644792770a4b140e49c
   m_configObjects: {}
