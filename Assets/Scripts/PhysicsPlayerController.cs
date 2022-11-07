@@ -119,8 +119,8 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// </summary>
     public void UpdateCamera()
     {
-        turn.x += Input.GetAxis("Mouse X") * mouseXSensitiviy * Time.deltaTime * 100;
-        turn.y += Input.GetAxis("Mouse Y") * mouseYSensitiviy * Time.deltaTime * 100;
+        turn.x += Input.GetAxis("Mouse X") * mouseXSensitiviy;
+        turn.y += Input.GetAxis("Mouse Y") * mouseYSensitiviy;
         transform.rotation = Quaternion.Euler(0f, turn.x, 0f);
         cam.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0f);
     }
