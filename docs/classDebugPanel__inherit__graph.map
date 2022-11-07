@@ -1,0 +1,4 @@
+<map id="DebugPanel" name="DebugPanel">
+<area shape="rect" id="node1" title="A controller for the debug settings. Currently contains a manually maintained map of UI elements to t..." alt="" coords="17,80,117,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,129,32"/>
+</map>

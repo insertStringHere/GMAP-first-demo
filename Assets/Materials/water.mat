@@ -124,7 +124,8 @@ Material:
     - _ZWrite: 1
     - _gradientNoiseMultiplier: 3.13
     - _timeMultiplier: 1.65
-    - _waveDensity: 8.74
+    - _waveDensity: 0.19
+    - _waveHeightMultiplier: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -1,0 +1,6 @@
+<map id="DebugPanel" name="DebugPanel">
+<area shape="rect" id="node1" title="A controller for the debug settings. Currently contains a manually maintained map of UI elements to t..." alt="" coords="60,171,160,197"/>
+<area shape="rect" id="node2" title=" " alt="" coords="48,5,172,32"/>
+<area shape="rect" id="node3" href="$classPhysicsPlayerController.html" title="A Rigidbody based player controller." alt="" coords="22,81,198,108"/>
+<area shape="rect" id="node4" href="$classZController.html" title="A script to control all IRewinders in the current GameObject&#39;s children and process their state captu..." alt="" coords="223,81,318,108"/>
+</map>

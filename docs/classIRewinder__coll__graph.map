@@ -1,0 +1,5 @@
+<map id="IRewinder" name="IRewinder">
+<area shape="rect" id="node1" title="An abstraction of the rewinder functionality for use with a ZController to rewind an object." alt="" coords="29,171,116,197"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node3" href="$classZController.html" title="A script to control all IRewinders in the current GameObject&#39;s children and process their state captu..." alt="" coords="89,81,184,108"/>
+</map>
