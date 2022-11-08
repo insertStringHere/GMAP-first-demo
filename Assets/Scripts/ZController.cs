@@ -147,12 +147,13 @@ public class ZController : MonoBehaviour {
                     foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
                     deltaTime = 0;
                 }
-                
-                if(timeAllowance > 0)
-                    timeRemaining -= Time.fixedDeltaTime; 
-                
-                if(timeRemaining <= 0)
-                    foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
+
+                if (timeAllowance > 0) {
+                    timeRemaining -= Time.fixedDeltaTime;
+
+                    if (timeRemaining <= 0)
+                        foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
+                }
                 // If it's time to capture a state, capture the next state
             } else if (deltaTime >= recordInterval) {
                 foreach (IRewinder r in rewinds) if(r.isActiveAndEnabled) r.Store();
