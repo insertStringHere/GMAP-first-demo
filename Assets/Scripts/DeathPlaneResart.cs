@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DeathPlaneResart : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class DeathPlaneCollision : MonoBehaviour
 {
     [SerializeField] private LevelLoader l;
     [SerializeField] private GameObject p;

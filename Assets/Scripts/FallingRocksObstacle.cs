@@ -21,15 +21,10 @@ public class FallingRocksObstacle : MonoBehaviour
         yield return new WaitForSeconds(timeout); ///destroys obstacles after they have already fallen, after they already 
         Destroy(this.gameObject);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) ///kills player upon collision
-        {
-            Destroy(collision.gameObject);
-        }
+
     }
     ///<summary>
     /// Place this script on the prefab that SpawningRocks script will spawn
     /// This destroys the game object after it has been spawned and is no longer moving, so once its fallen, and it will also kill the player upon collision
     ///</summary>
-}
+
