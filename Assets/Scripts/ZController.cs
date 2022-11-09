@@ -101,6 +101,8 @@ public class ZController : MonoBehaviour {
         // Finally, if the player stopped rewinding, then play the states
         if (Input.GetKeyUp(KeyCode.Q) || Input.GetMouseButtonUp(0))
             foreach (IRewinder r in rewinds) if (r.isActiveAndEnabled) r.Play();
+
+        ModifyTimeScale();
     }
 
     /// <summary>
@@ -212,5 +214,36 @@ public class ZController : MonoBehaviour {
         return Mathf.Abs(a.x - b.x) < approximateLeniency &&
                Mathf.Abs(a.y - b.y) < approximateLeniency &&
                Mathf.Abs(a.z - b.z) < approximateLeniency;
+    }
+
+    /// <summary>
+    /// Resets the reduces the delta time checking how long the players been holding the rewind by given value
+    /// </summary>
+    public void ReduceDeltaTime(float timeRedux)
+    {
+        this.deltaTime -= timeRedux;
+    }
+
+    /// <summary>
+    /// Increases or decreses the current time rewind scale. When rewind scale is less than one the value wil be fractional
+    /// instead of entering negatives
+    /// </summary>
+    public void ModifyTimeScale()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            float scaleChange = Input.GetAxis("Mouse ScrollWheel");
+            Debug.Log(scaleChange);
+
+            if (this.rewindScale <= 1.0f && scaleChange < 0)
+            {
+                //this.rewindScale = this.rewindScale * (scaleChange * -1);
+                this.rewindScale *= 0.75f;
+            }
+            else
+            {
+                this.rewindScale += scaleChange;
+            }
+        }
     }
 }
