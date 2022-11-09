@@ -46,10 +46,10 @@ public class TextboxScript : MonoBehaviour
     /// Function for when the player collides with the trigger.
     /// </summary>
     private void OnTriggerEnter(Collider other) {
-        if (other.transform.parent.tag == "Player" && !hasBeenSeen) {
+        if (other.transform.parent != null && other.transform.parent.tag == "Player" && !hasBeenSeen) {
             StartCoroutine(DisplayTextCoroutine());
+            hasBeenSeen = true;
         }
-        hasBeenSeen = true;
     }
 
     IEnumerator DisplayTextCoroutine() {

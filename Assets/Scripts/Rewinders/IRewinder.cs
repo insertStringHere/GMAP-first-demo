@@ -175,6 +175,7 @@ public abstract class IRewinder : MonoBehaviour {
 /// <item>Rotation</item>
 /// <item>Velocity</item>
 /// <item>Angular Velocity</item>
+/// <item>is On?</item>
 /// </list>
 /// </remarks>
 public class SnapState {
@@ -185,4 +186,6 @@ public class SnapState {
 
     public Vector3 velocity;
     public Vector3 angularVelocity;
+
+    public bool isOn;
 }
