@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 2048
     height: 1068.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 875, y: 421}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 6318
+  controlID: 39
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -97,7 +97,7 @@ MonoBehaviour:
     y: 0
     width: 2048
     height: 1068.8
-  m_MinSize: {x: 875, y: 421}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 97
+  controlID: 94
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 100
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18
+  controlID: 101
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -321,8 +321,8 @@ MonoBehaviour:
     y: 0
     width: 414.40002
     height: 1018.80005
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -369,22 +369,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/Env_v3
+    - Assets/Models
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Models/Env_v3
+  - Assets/Models
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\Repositories\GMAP-first-demo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 30af0000
-    m_LastClickedID: 44848
-    m_ExpandedIDs: 00000000427700009aa0000000ca9a3bffffff7f
+    m_SelectedIDs: 14720000
+    m_LastClickedID: 29204
+    m_ExpandedIDs: 00000000fe71000000720000027200000472000006720000087200000a7200000c7200000e72000010720000127200001472000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -412,7 +412,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000fe71000000720000027200000472000006720000087200000a7200000c7200000e720000107200001272000014720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -590,10 +590,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 32}
-      m_SelectedIDs: 9ad6feff
-      m_LastClickedID: -76134
-      m_ExpandedIDs: ec8fffff9a91ffff5298ffff129effff92a2ffffe2eeffff38fbffff1e690000a86b00003e6f0000f86f0000
+      scrollPos: {x: 0, y: 426.8}
+      m_SelectedIDs: 4a720000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 08faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -705,9 +705,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 67.5, y: 86}
+      snapOffset: {x: -112, y: 25.599998}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
+      snapCorner: 1
       id: Orientation
       index: 0
       layout: 4
@@ -842,9 +842,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 43.27364, y: -0.12829638, z: -62.054123}
+    m_Target: {x: 32.939125, y: 1.705975, z: -60.701492}
     speed: 2
-    m_Value: {x: 43.27364, y: -0.12829638, z: -62.054123}
+    m_Value: {x: 32.939125, y: 1.705975, z: -60.701492}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -891,13 +891,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.24910852, y: -0.31248367, z: 0.085428685, w: -0.9130221}
+    m_Target: {x: -0.23266958, y: -0.09007715, z: 0.021869855, w: -0.9684171}
     speed: 2
-    m_Value: {x: -0.24890438, y: -0.3137574, z: 0.08577616, w: -0.91227484}
+    m_Value: {x: -0.23263709, y: -0.08859965, z: 0.021514812, w: -0.9682805}
   m_Size:
-    m_Target: 6.3735285
+    m_Target: 11.295142
     speed: 2
-    m_Value: 6.3735285
+    m_Value: 10.808748
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -989,24 +989,24 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 3
+    m_SearchArea: 1
     m_Folders:
-    - Assets/Models/Env_v3
+    - Assets/Models
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/Env_v3
+  - Assets/Models
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\Repositories\GMAP-first-demo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 30af0000
-    m_LastClickedID: 44848
-    m_ExpandedIDs: 00000000427700004477000046770000487700004a7700004c7700004e77000050770000527700005477000098a000009aa0000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 14720000
+    m_LastClickedID: 29204
+    m_ExpandedIDs: 00000000fe71000000720000027200000472000006720000087200000a7200000c7200000e7200001072000012720000147200008872000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000427700004477000046770000487700004a7700004c7700004e770000507700005277000054770000
+    m_ExpandedIDs: 00000000fe71000000720000027200000472000006720000087200000a7200000c7200000e720000107200001272000014720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -3,7 +3,17 @@ guid: ea1fe31ccec0cd4418ec28338c1d299b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CielingTrim
+    second: {fileID: 2100000, guid: cded3f01004f7df4284a8b6afe782f62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Tile
+    second: {fileID: 2100000, guid: 9fda2b7ceaed6564ab6282f418cac688, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
