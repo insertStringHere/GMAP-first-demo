@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TWall
   - GWall
+  - TextboxLayer
   layers:
   - Default
   - TransparentFX

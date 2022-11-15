@@ -235,13 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7559c47a1b849fc418710c4679dfd8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   playerSpeed: 2
   jumpHeight: 1
-  cam: {fileID: 0}
-  turnSmoothnessTime: 0.1
-  mouseXSensitiviy: 1
-  mouseYSensitiviy: 1
 --- !u!1 &503640422
 GameObject:
   m_ObjectHideFlags: 0

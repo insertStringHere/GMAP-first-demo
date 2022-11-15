@@ -8,29 +8,27 @@ using UnityEngine;
 /// </summary>
 public class PhysicsPlayerController : MonoBehaviour {
     /// <summary>
-    /// The the attachee <see cref="GameObject"/>'s <see cref="Rigidbody"/>.
+    /// The attachee <see cref="GameObject"/>'s <see cref="Rigidbody"/>.
     /// </summary>
     private Rigidbody rigidBody;
-
-    //Don't know what these are
-    private int TWallcount;
-    public GameObject Rock;
-    public GameObject Gate;
-    public GameObject Rock2;
-    public GameObject Bridge;
 
     /// <summary>
     /// A <see cref="Vector3"/> containing the accelleration value for the player in each direction.
     /// </summary>
-    public Vector3 playerAcceleration = new Vector3(10, 10, 20);
+    public Vector3 playerAcceleration = new Vector3(10, 5, 10);
     /// <summary>
     /// A <see cref="Vector3"/> containing the maximum absolute velocity that the player can go in any direction.
     /// </summary>
-    public Vector3 maxSpeed = new Vector3(3, 15, 5);
+    public Vector3 maxSpeed = new Vector3(4, 15, 4);
     /// <summary>
     /// A <see cref="bool"/> representing whether or not the player is currently touching a ground.
     /// </summary>
     public bool grounded;
+
+    /// <summary>
+    /// A <see cref="bool"/> representing whether or not the player is using force to move.
+    /// </summary>
+    public bool useForce = true;
 
 
     // Does this need to be instance scope?
@@ -56,6 +54,17 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// </summary>
     [Range(0.5f, 3)] public float mouseYSensitiviy = 1;
 
+    /// <summary>
+    /// Caches the player input as a variable for use between Update and FixedUpdate
+    /// </summary>
+    [SerializeField] private Vector3 horizontalInput;
+    /// <summary>
+    /// Caches whether or not the jump button is pressed for use between Update and FixedUpdate
+    /// </summary>
+    [SerializeField] private bool jump;
+
+    [SerializeField] private float SlowMultiplier = 1.1f;
+
 
     /// <summary>
     /// Attempts to set the <see cref="Rigidbody"/> and camera <see cref="Transform"/> if not set within the editor,
@@ -69,47 +78,38 @@ public class PhysicsPlayerController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Updates the player's movement based on input; calls <see cref="UpdateCamera"/>, 
-    /// <see cref="DoMovement(ref float, ref float)"/>, and <see cref="DoJump(ref float)"/>. 
-    /// <para/>
-    /// Also applies velocity cap.
-    /// </summary>
+    /// Calls <see cref="UpdateCamera"/> and captures player input.
+    /// </summary> 
     void Update() {
         UpdateCamera();
 
+        horizontalInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        jump = Input.GetKey(KeyCode.Space);
 
-        // Someone document what this is
-        if (TWallcount == 1)
-        {
-            Rock.gameObject.SetActive(true);
-            Gate.gameObject.SetActive(false);
-        }
-        if (TWallcount == 2)
-        {
-            Rock2.gameObject.SetActive(true);
-        }
+    }
 
+    /// <summary>
+    /// Updates the player's movement based on input; 
+    /// <see cref="DoMovement(ref float, ref float)"/> and <see cref="DoJump(ref float)"/>. 
+    /// <para/>
+    /// Also applies velocity cap.
+    /// </summary>    
+    void FixedUpdate(){
         // Extract player velocities
         float xVel = transform.InverseTransformVector(rigidBody.velocity).x;
         float zVel = transform.InverseTransformVector(rigidBody.velocity).z;
         float yVel = transform.InverseTransformVector(rigidBody.velocity).y;
-        
-        DoMovement(ref xVel, ref zVel);
+
+        //choose method of movement.
+        if(useForce)
+            PlayerMove();
+        else
+            DoMovement(ref xVel, ref zVel);
+
         DoJump(ref yVel);
 
         // Apply the velocities after doing movement
-        rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
-
-        // Like, please; I'm so confused
-        if (TWallcount == 1)
-        {
-            Rock.gameObject.SetActive(true);
-            Gate.gameObject.SetActive(false);
-        }
-        if (TWallcount == 2)
-        {
-            Rock2.gameObject.SetActive(true);
-        }
+        //rigidBody.velocity = transform.TransformVector(new Vector3(xVel, yVel, zVel));
     }
 
     /// <summary>
@@ -126,53 +126,73 @@ public class PhysicsPlayerController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Calculates the player's x and z direction movement. Movement is converted
-    /// into a <see cref="Rigidbody"/> force using the mass and the <see cref="playerAcceleration"/> 
-    /// for that direction. If the current velocity is higher than the max, however, it will be reduced
+    /// Calculates the player's x and z direction movement. Movement is applied using
+    /// <see cref="Rigidbody.MovePosition"/> by applying the <see cref="playerAcceleration"/> with the second
+    /// equation of motion. If the current velocity is higher than the max, however, it will be reduced
     /// to the max and stored in <paramref name="xVel"/> and <paramref name="zVel"/>.
     /// </summary>
     /// <param name="xVel">A reference to the x velocity of the player; will be capped to the maxSpeed value if too high</param>
     /// <param name="zVel">A reference to the z velocity of the player; will be capped to the maxSpeed value if too high</param>
     public void DoMovement(ref float xVel, ref float zVel)
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
-
         // If there's input for x
-        if (Math.Abs(x) > .001)
+        if (Math.Abs(horizontalInput.x) > .001)
         {
             // Check if the velocity is within the speed bounds
             if (Math.Abs(xVel) <= maxSpeed.x)
                 // if it is, then set the force.
-                x *= rigidBody.mass * playerAcceleration.x;
+                horizontalInput.x *= playerAcceleration.x * Time.fixedDeltaTime * Time.fixedDeltaTime;
             else
             {
                 // if not, there will be no force and the speed needs to be
                 // reduced to the max speed, maintaining the same sign.
-                x = 0;
+                horizontalInput.x = 0;
                 xVel = maxSpeed.x * (xVel / Math.Abs(xVel));
             }
         }
 
 
         // If there's input for z
-        if (Math.Abs(z) > .001)
+        if (Math.Abs(horizontalInput.z) > .001)
         {
             // Check if the velocity is within the speed bounds
             if (Math.Abs(zVel) <= maxSpeed.z)
                 // if it is, then set the force.
-                z *= rigidBody.mass * playerAcceleration.z;
+                horizontalInput.z *= playerAcceleration.z * Time.fixedDeltaTime * Time.fixedDeltaTime;
             else
             {
                 // if not, there will be no force and the speed needs to be
                 // reduced to the max speed, maintaining the same sign.
-                z = 0;
+                horizontalInput.z = 0;
                 zVel = maxSpeed.z * (zVel / Math.Abs(zVel));
             }
         }
 
         // Add the force, translated to match the current rotation of the player object.
-        rigidBody.AddForce(transform.TransformVector(new Vector3(x, 0f, z)));
+        rigidBody.MovePosition(transform.position + new Vector3(xVel * Time.fixedDeltaTime, 0, zVel * Time.fixedDeltaTime) + transform.TransformDirection(horizontalInput));
+ 
+    }
+    /// <summary>
+    /// Calculates the players x and z movement using <see cref="rigidBody.AddForce"/> by multiplying the <see cref="playerAcceleration"/>
+    /// by the mass of the player. If there is no input, the velocity of the player is devided by 1.1 every physics update.
+    /// </summary>
+    void PlayerMove()
+    {
+        //chacks for player input.
+        if(MathF.Abs(horizontalInput.x) > 0.01f || MathF.Abs(horizontalInput.z) > 0.01f)
+        {
+            //checks if player is below max speed, then adds force in the inputed direction
+            if (MathF.Abs(rigidBody.velocity.x) < maxSpeed.x && MathF.Abs(rigidBody.velocity.z) < maxSpeed.z)
+                rigidBody.AddForce(transform.TransformDirection(new Vector3(horizontalInput.x * playerAcceleration.x * rigidBody.mass, 0f, horizontalInput.z * playerAcceleration.z * rigidBody.mass)));
+            //if above max speed, sets the velocity in the indicated direction. This is to fix missed input bugs.
+            else
+                rigidBody.velocity = transform.TransformDirection(new Vector3(horizontalInput.x * maxSpeed.x, rigidBody.velocity.y, horizontalInput.z * maxSpeed.z));
+        }
+        else
+        {
+            //deccelerates player when there is no move input.
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x / SlowMultiplier, rigidBody.velocity.y, rigidBody.velocity.z / SlowMultiplier);
+        }
     }
 
     /// <summary>
@@ -193,7 +213,7 @@ public class PhysicsPlayerController : MonoBehaviour {
                 yVel = maxSpeed.y * (yVel / Math.Abs(yVel));
 
         // Imparts a jump force on the player.
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (jump && grounded)
         {
             rigidBody.AddForce(new Vector3(0, rigidBody.mass * playerAcceleration.y, 0), ForceMode.Impulse);
         }
@@ -207,21 +227,6 @@ public class PhysicsPlayerController : MonoBehaviour {
         if (collision.impulse.magnitude > 1000) {
             // kill player
             Debug.Log("U died");
-        }
-    }
-
-    // Not sure what this does
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("TWall"))
-        {
-            other.gameObject.SetActive(false);
-            TWallcount = TWallcount + 1;
-        }
-        if (other.gameObject.CompareTag("GWall"))
-        {
-            other.gameObject.SetActive(false);
-            Bridge.gameObject.SetActive(true);
         }
     }
 

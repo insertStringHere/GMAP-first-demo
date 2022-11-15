@@ -1,0 +1,5 @@
+<map id="AudioController" name="AudioController">
+<area shape="rect" id="node1" title="A controller for player audio." alt="" coords="11,171,134,197"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node3" href="$classPhysicsPlayerController.html" title="A Rigidbody based player controller." alt="" coords="89,81,265,108"/>
+</map>
