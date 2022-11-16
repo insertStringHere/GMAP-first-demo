@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ac3e60fe4318f7549bf383239a7f770b
+guid: bb13975d27278f549a2759b3d98956cc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Tile
     second: {fileID: 2100000, guid: d0fcb9a73e2eb904eae269b2e5a492dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Trim
+    second: {fileID: 2100000, guid: cded3f01004f7df4284a8b6afe782f62, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

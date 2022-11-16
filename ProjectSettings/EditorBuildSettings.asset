@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: afc97a947762d414e84f8ac02bc3e2af
+  - enabled: 1
+    path: Assets/Scenes/Maze Puzzle Scene.unity
+    guid: 0d90d47453e63ca47b6d251e74f68f6d
   m_configObjects: {}

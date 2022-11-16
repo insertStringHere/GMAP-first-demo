@@ -16,7 +16,7 @@ public class VignetteRewind : MonoBehaviour
    
     void Update()
     {
-        if(Input.GetKey(KeyCode.Q))
+        if(Input.GetKey(KeyCode.Q) || Input.GetMouseButton(0))
         {
             VignetteOn();
         }
