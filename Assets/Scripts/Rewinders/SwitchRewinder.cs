@@ -14,13 +14,22 @@ public class SwitchRewinder : IRewinder {
     /// Boolean value. True if the switch is currently on (objToToggle inactive).
     /// </summary>
     public bool isOn;
+    public bool canToggle = false;
 
     /// <summary>
     /// Initializes the state of the switch.
     /// <summary/>
-    private void Start() {
+    void Start() {
         isOn = false;
         base.Start();
+    }
+
+    void Update() {
+        if (canToggle && Input.GetKeyDown(KeyCode.E)) {
+            Debug.Log("Switch pressed");
+            isOn = !isOn;
+            objToToggle.SetActive(!this.isOn);
+        }
     }
 
     /// <summary>
@@ -74,11 +83,15 @@ public class SwitchRewinder : IRewinder {
     /// <summary>
     /// Check for input when player is near switch.
     /// </summary>
-    public void OnTriggerStay(Collider other) {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            Debug.Log("Switch pressed");
-            isOn = !isOn;
-            objToToggle.SetActive(!this.isOn);
+    public void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player") {
+            canToggle = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other) {
+        if (other.tag == "Player") {
+            canToggle = false;
         }
     }
 
