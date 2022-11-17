@@ -16,6 +16,8 @@ public class SwitchRewinder : IRewinder {
     public bool isOn;
     public bool canToggle = false;
 
+    public Animator animator;
+
     /// <summary>
     /// Initializes the state of the switch.
     /// <summary/>
@@ -30,6 +32,8 @@ public class SwitchRewinder : IRewinder {
             isOn = !isOn;
             objToToggle.SetActive(!this.isOn);
         }
+
+        animator.SetBool("On", isOn); 
     }
 
     /// <summary>
@@ -76,6 +80,9 @@ public class SwitchRewinder : IRewinder {
 
             if (printDebug && state != null)
                 Debug.Log($"{name} popping and applying state {states.Count + 1}");
+
+        } else {
+            isOn = false;
         }
         return state;
     }
