@@ -1589,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4846471612774316032, guid: 333b32aea74e21c4984016f9f22da0fc, type: 3}
       propertyPath: SelectedScene
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4846471613607115168, guid: 333b32aea74e21c4984016f9f22da0fc, type: 3}
       propertyPath: m_RootOrder
@@ -6365,6 +6365,8 @@ MonoBehaviour:
   rewindCooldown: 2
   cooldown: 0
   approximateLeniency: 0.01
+  timeAllowance: 0
+  timeRemaining: 0
   active: 1
 --- !u!114 &5632671124186856314
 MonoBehaviour:

@@ -2851,7 +2851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4846471612774316032, guid: 333b32aea74e21c4984016f9f22da0fc, type: 3}
       propertyPath: SelectedScene
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4846471612774316044, guid: 333b32aea74e21c4984016f9f22da0fc, type: 3}
       propertyPath: m_LocalScale.x
