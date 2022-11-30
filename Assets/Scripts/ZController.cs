@@ -219,9 +219,9 @@ public class ZController : MonoBehaviour {
     /// <summary>
     /// Resets the reduces the delta time checking how long the players been holding the rewind by given value
     /// </summary>
-    public void ReduceDeltaTime(float timeRedux)
+    public void ReduceDeltaTime(float timeInc)
     {
-        this.deltaTime -= timeRedux;
+        timeRemaining += timeInc;
     }
 
     /// <summary>
