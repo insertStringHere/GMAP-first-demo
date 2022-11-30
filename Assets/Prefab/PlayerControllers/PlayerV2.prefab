@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7299837983897218574}
   - component: {fileID: 2401894002441286056}
   - component: {fileID: 8187152863880201245}
+  - component: {fileID: 6287325132327525515}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Player
@@ -258,6 +259,22 @@ MonoBehaviour:
   badParticlePrefab: {fileID: 2455928402056066325}
   rewindPrimary: 323
   rewindSecondary: 113
+--- !u!114 &6287325132327525515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299837983897218588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410aeb45aa7c3064cbee60fe1b7e69eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartLevel: 114
+  loadPreviousLevel: 57
+  loadNextLevel: 48
+  l: {fileID: 0}
 --- !u!1 &7299837983971551454
 GameObject:
   m_ObjectHideFlags: 0

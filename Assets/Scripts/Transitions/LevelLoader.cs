@@ -9,16 +9,22 @@ public class LevelLoader : MonoBehaviour
     public Animator Transition;
     public float TransitionTime = 1;
 
+    /// <summary>
+    /// Start method gets all available scenes for checking if they are available to warp to in ChangeScene()
+    /// </summary>
     private void Start()
     {
-    // Get all scenes 
-     for (int i = 0; i < SceneManager.sceneCount; i++)
+
+        for (int i = 0; i < SceneManager.sceneCount; i++)
      {
         SceneList.Add(SceneManager.GetSceneAt(i));
      }
 
     }
 
+    /// <summary>
+    /// Triggers the actual change in scenes after validation from previous method and after scene transition animation is played
+    /// </summary>
     public IEnumerator LoadLevel(int sceneIndex)
     {
         Transition.SetTrigger("Start");
@@ -28,6 +34,11 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
+    /// <summary>
+    /// Level loader mode if public Target Bool is enabled
+    /// Allows a designer to chose which scene to warp to for any given level loader 
+    /// The chosen stage must be in the build settings to be a valid warp. Gice bad warp error if index is not in build settings
+    /// </summary>
     public void ChangeScene(int sceneIndex)
     {
         if(sceneIndex >= SceneManager.sceneCountInBuildSettings)
@@ -41,23 +52,46 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Level loader default
+    /// A transition trigger will default to loading the next level in the build settings and will loop back to index 0 at after the final scene
+    /// </summary>
     public void NextScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (sceneIndex >= SceneManager.sceneCountInBuildSettings)
+        if (sceneIndex >= SceneManager.sceneCountInBuildSettings || sceneIndex < 0)
         {
             Debug.Log($"Input:{sceneIndex}, NumScenes:{SceneManager.sceneCountInBuildSettings}");
             StartCoroutine(LoadLevel(0));
-            // SceneManager.LoadScene(0);
         }
         else
         { 
             StartCoroutine(LoadLevel(sceneIndex));
-            // SceneManager.LoadScene(sceneIndex);
         }
     }
 
+    /// <summary>
+    /// A transition that will load the previous scene and then loop to the last scene if at scene index 0
+    /// </summary>
+    public void PreviousScene()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+
+        if (sceneIndex < 0 )
+        {
+            Debug.Log($"Input:{sceneIndex}, NumScenes:{SceneManager.sceneCountInBuildSettings}");
+            StartCoroutine(LoadLevel(SceneManager.sceneCountInBuildSettings - 1));
+        }
+        else
+        {
+            StartCoroutine(LoadLevel(sceneIndex));
+        }
+    }
+
+    /// <summary>
+    /// Simply reloads the scene while providing the transition amimation
+    /// </summary>
     public void ReloadScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
