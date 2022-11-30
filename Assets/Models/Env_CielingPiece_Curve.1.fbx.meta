@@ -1,33 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Models/M_MidHangingLantern.fbx.meta
-guid: 6d529594c60add84cb4d7b58328b8884
-========
-guid: ea1fe31ccec0cd4418ec28338c1d299b
->>>>>>>> parent of 83bad83 (Added arches and fixed roof tiles):Assets/Models/Env_CielingPiece_Corner.1.fbx.meta
+guid: 63dde4480a7c2594ab7ad089842d0920
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-<<<<<<<< HEAD:Assets/Models/M_MidHangingLantern.fbx.meta
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 3ade7af168ab028489161e994d24ddd5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface2
-    second: {fileID: 2100000, guid: f6929f6df7c9ab14ea6be36f58e1c268, type: 2}
-========
-      name: CielingTrim
-    second: {fileID: 2100000, guid: cded3f01004f7df4284a8b6afe782f62, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Tile
-    second: {fileID: 2100000, guid: 9fda2b7ceaed6564ab6282f418cac688, type: 2}
->>>>>>>> parent of 83bad83 (Added arches and fixed roof tiles):Assets/Models/Env_CielingPiece_Corner.1.fbx.meta
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
