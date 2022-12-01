@@ -860,11 +860,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 2401894002441286056}
   walkSounds:
-  - {fileID: 8300000, guid: a7bdaf36e63391545b96e4a7e24f773a, type: 3}
-  - {fileID: 8300000, guid: f9e51727ef922c140bcbad4e3c51ca80, type: 3}
-  - {fileID: 8300000, guid: 76468c5f9ad8cb543af04bd327912191, type: 3}
-  - {fileID: 8300000, guid: 445ff65c4f3c2b946b9b98d5b9c827cd, type: 3}
-  - {fileID: 8300000, guid: 12334fe9933aeb04b9cf7c7621e6644b, type: 3}
+  - {fileID: 8300000, guid: f55e0d3a942d73f4087d502f6f040bd2, type: 3}
+  - {fileID: 8300000, guid: 74050ddcd27198341ab5b5900e4f5a0e, type: 3}
+  - {fileID: 8300000, guid: 84687eff9fba95e42ade274e8746cdfe, type: 3}
+  - {fileID: 8300000, guid: 2057e6677e4df4f43ace203ed1255087, type: 3}
+  - {fileID: 8300000, guid: b4f8f3ad760951240a6404897d03c9f0, type: 3}
+  landSound: {fileID: 8300000, guid: 5e50d76a51222854cb5103c5caeeb972, type: 3}
   timeAudio: {fileID: 1440426800}
   timeRewindSound: {fileID: 8300000, guid: a123b7b8b77dbd741927a37e10b66f48, type: 3}
   ttOpenCloseSounds: {fileID: 8300000, guid: 064f1543b4eb2b648baa24a683269f17, type: 3}

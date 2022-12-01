@@ -11,6 +11,7 @@ public class AudioController : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] walkSounds;
+    public AudioClip landSound;
     public AudioSource timeAudio;
     public AudioClip timeRewindSound;
     public AudioClip ttOpenCloseSounds;
@@ -20,6 +21,7 @@ public class AudioController : MonoBehaviour
     private bool playSound = true;
     public float waitStep = .5f;
     private bool ttclosed = true;
+    private bool landed;
 
     public PhysicsPlayerController ppc;
 
@@ -37,12 +39,21 @@ public class AudioController : MonoBehaviour
         }
 
         //play time rewind sound when pressing Q
-        if (Input.GetKeyDown(KeyCode.Q)) {
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) {
             TimeTurnerOpen();
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetMouseButtonUp(0))
         {
             TimeTurnerClose();
+        }
+        if (ppc.grounded && !landed)
+        {
+            landed = true;
+            audioSource.PlayOneShot(landSound);            
+        }
+        else if (!ppc.grounded)
+        {
+            landed = false;
         }
     }
     /// <summary>
