@@ -61,7 +61,7 @@ public class PhysicsPlayerController : MonoBehaviour {
     /// <summary>
     /// Caches whether or not the jump button is pressed for use between Update and FixedUpdate
     /// </summary>
-    [SerializeField] private bool jump;
+    [SerializeField] public bool jump;
 
     [SerializeField] private float SlowMultiplier = 1.1f;
 
