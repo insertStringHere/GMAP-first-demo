@@ -8,19 +8,20 @@ public class TimeCollectible : MonoBehaviour
     /// A Basic collectible script that increases the available rewindable time when collected
     /// determined by the timeRefreshAmount
     /// </summary>
-    public float timeRefreshAmount = 2.0f;
+    public float timeRefreshAmount;
     [SerializeField]
     private GameObject RoomContainer;
     [SerializeField]
     private ZController zController;
+    [SerializeField]
 
     /// <summary>
     /// Finds all active zControllers
     /// </summary>
     void Start()
     {
-        RoomContainer = GameObject.Find("Moving");
-        zController = RoomContainer.GetComponentInChildren<ZController>();
+        // RoomContainer = GameObject.Find("Moving");
+        // zController = RoomContainer.GetComponentInChildren<ZController>();
     }
 
     /// <summary>
@@ -30,8 +31,10 @@ public class TimeCollectible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            zController.ReduceDeltaTime(2.0f);
-            Destroy(this.gameObject);
+            Debug.Log(zController.timeAllowance);
+            zController.ReduceDeltaTime(timeRefreshAmount);
+            
+            // Destroy(this.gameObject);
         }
     
     }
@@ -42,9 +45,9 @@ public class TimeCollectible : MonoBehaviour
     void Update()
     {
        
-        if(!zController.gameObject.activeSelf)
-        {
-            zController = GameObject.FindObjectOfType<ZController>();
-        }    
+        // if(!zController.gameObject.activeSelf)
+        // {
+        //     zController = GameObject.FindObjectOfType<ZController>();
+        // }    
     }
 }

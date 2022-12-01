@@ -9,10 +9,12 @@ public class LevelTransitionTrigger : MonoBehaviour
     public LevelLoader lLoad;
     public bool TargetScene;
     public int SelectedScene = 0;
-    
 
 
 
+    /// <summary>
+    /// Detects if colliding with player and then triggers the level loader to begin transitioning to the next stage
+    /// </summary>
     public void OnTriggerEnter(Collider other){
         if (!TargetScene)
         {
