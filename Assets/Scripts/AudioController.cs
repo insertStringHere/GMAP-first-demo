@@ -13,9 +13,13 @@ public class AudioController : MonoBehaviour
     public AudioClip[] walkSounds;
     public AudioSource timeAudio;
     public AudioClip timeRewindSound;
+    public AudioClip ttOpenCloseSounds;
+    public AudioClip rewindStartSound;
+    public AudioClip rewindLimitWarningSound;
     private int walkSoundIndex;
     private bool playSound = true;
     public float waitStep = .5f;
+    private bool ttclosed = true;
 
     public PhysicsPlayerController ppc;
 
@@ -34,13 +38,49 @@ public class AudioController : MonoBehaviour
 
         //play time rewind sound when pressing Q
         if (Input.GetKeyDown(KeyCode.Q)) {
-            timeAudio.PlayOneShot(timeRewindSound);
+            TimeTurnerOpen();
         }
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            timeAudio.Stop();
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            TimeTurnerClose();
         }
     }
-    
+    /// <summary>
+    /// a method triggered by pressing the time rewind button that plays the <see cref="ttOpenCloseSounds"/> sound effect 
+    /// </summary>
+    void TimeTurnerOpen()
+    {
+        ttclosed = false;
+        timeAudio.loop = false;
+        if (timeAudio.isPlaying)
+            timeAudio.Stop();
+        timeAudio.PlayOneShot(ttOpenCloseSounds);
+        StartCoroutine(WaitTilOpen());
+    }
+    /// <summary>
+    /// A method triggered by releasing the time rewind button  that plays the <see cref="ttOpenCloseSounds"/> sound effect
+    /// </summary>
+    void TimeTurnerClose()
+    {
+        ttclosed = true;
+        timeAudio.loop = false;
+        if (timeAudio.isPlaying)
+            timeAudio.Stop();
+        timeAudio.PlayOneShot(ttOpenCloseSounds);
+    }
+
+    void PlayTimeRewind()
+    {
+        timeAudio.PlayOneShot(rewindStartSound);
+        StartCoroutine(WaitForRewind());
+    }
+
+    void PlayRewindSFX()
+    {
+        timeAudio.clip = timeRewindSound;
+        timeAudio.loop = true;
+        timeAudio.Play();
+    }
     /// <summary>
     /// A coroutine method that waits until the next step
     /// audio should be played
@@ -49,5 +89,27 @@ public class AudioController : MonoBehaviour
     public IEnumerator WaitForNextStep() {
         yield return new WaitForSeconds(waitStep);
         playSound = true;
+    }
+    /// <summary>
+    /// A coroutine method that waits until the <see cref="ttOpenCloseSounds"/> has finished,
+    /// then starts the <see cref="PlayTimeRewind"/> method.
+    /// </summary>
+    /// <returns>>A <see cref="WaitForSeconds"/> object.</returns>
+    public IEnumerator WaitTilOpen()
+    {
+        yield return new WaitForSeconds(ttOpenCloseSounds.length);
+        if (!ttclosed)
+        {
+            PlayTimeRewind();
+        }           
+    }
+
+    public IEnumerator WaitForRewind()
+    {
+        yield return new WaitForSeconds(rewindStartSound.length);
+        if (!ttclosed)
+        {
+            PlayRewindSFX();
+        }
     }
 }

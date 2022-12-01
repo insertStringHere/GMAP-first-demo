@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8502a65549b992439ff6a460752d01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fogColor: {r: 0.3991634, g: 0.6376573, b: 0.735849, a: 0.99607843}
+  fogColor: {r: 0.39061943, g: 0.55473256, b: 0.6226415, a: 0.99607843}

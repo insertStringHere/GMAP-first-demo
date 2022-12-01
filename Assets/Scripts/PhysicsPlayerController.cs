@@ -227,7 +227,8 @@ public class PhysicsPlayerController : MonoBehaviour {
         if (collision.impulse.magnitude > 1000) {
             // kill player
             Debug.Log("U died");
+            //LevelLoader l = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+            //l.ReloadScene();
         }
     }
-
 }
