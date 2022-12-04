@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandAnimation : MonoBehaviour
 {
     public Animator timeRewindAnimator;
+    public Animator handRewindAnimator;
     public float transitionTime = 1;
     public GameObject goodParticlePrefab;
     public GameObject badParticlePrefab;
@@ -17,11 +18,13 @@ public class HandAnimation : MonoBehaviour
         if(Input.GetKey(rewindPrimary) || Input.GetKey(rewindSecondary))
         {
             timeRewindAnimator.SetBool("Open", true);
+            handRewindAnimator.SetBool("Open", true);
             Invoke("setParticlesActive", 0.55f);
         }
         else
         {
             timeRewindAnimator.SetBool("Open", false);
+            handRewindAnimator.SetBool("Open", false);
             goodParticlePrefab.SetActive(false);
             badParticlePrefab.SetActive(false);
         }
