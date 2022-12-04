@@ -1488,7 +1488,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.94274926, b: 0, a: 1}
-  m_Intensity: 2000
+  m_Intensity: 4925.1
   m_Range: 88.6
   m_SpotAngle: 38.316826
   m_InnerSpotAngle: 30.729961
@@ -1827,7 +1827,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9087676, b: 0.24056602, a: 1}
-  m_Intensity: 51.2
+  m_Intensity: 301.45
   m_Range: 21
   m_SpotAngle: 179
   m_InnerSpotAngle: 88.218765
@@ -2861,7 +2861,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9087676, b: 0.24056602, a: 1}
-  m_Intensity: 52.8
+  m_Intensity: 328.9
   m_Range: 27
   m_SpotAngle: 179
   m_InnerSpotAngle: 88.218765
@@ -4874,7 +4874,11 @@ Transform:
   - {fileID: 192660779}
   - {fileID: 957373318}
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
   m_RootOrder: 11
+=======
+  m_RootOrder: 40
+>>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561099469 stripped
 GameObject:
@@ -7815,7 +7819,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9747503, b: 0.5707547, a: 1}
-  m_Intensity: 2161
+  m_Intensity: 4832
   m_Range: 150.3
   m_SpotAngle: 38.316826
   m_InnerSpotAngle: 30.729961
@@ -14076,7 +14080,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9087676, b: 0.24056602, a: 1}
-  m_Intensity: 52.8
+  m_Intensity: 312.8
   m_Range: 27
   m_SpotAngle: 179
   m_InnerSpotAngle: 88.218765
@@ -14599,7 +14603,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9087676, b: 0.24056602, a: 1}
-  m_Intensity: 52.8
+  m_Intensity: 282.3
   m_Range: 27
   m_SpotAngle: 179
   m_InnerSpotAngle: 88.218765
@@ -19611,7 +19615,11 @@ Transform:
   - {fileID: 1714391123}
   - {fileID: 843372352}
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
   m_RootOrder: 6
+=======
+  m_RootOrder: 33
+>>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1746776141
 PrefabInstance:
@@ -21273,7 +21281,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9087676, b: 0.24056602, a: 1}
-  m_Intensity: 23.6
+  m_Intensity: 125.5
   m_Range: 11.371519
   m_SpotAngle: 179
   m_InnerSpotAngle: 88.218765
