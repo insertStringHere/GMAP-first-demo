@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class HandAnimation : MonoBehaviour
 {
+    /// <summary>
+    /// The animation controller for the chronometer
+    /// </summary>
     public Animator timeRewindAnimator;
+    /// <summary>
+    /// The animation controller for the player hand
+    /// </summary>
     public Animator handRewindAnimator;
-    public float transitionTime = 1;
+    /// <summary>
+    /// The particle system for active rewindi
+    /// </summary>
     public GameObject goodParticlePrefab;
     public GameObject badParticlePrefab;
     //public GameObject timeTurnerAnimationObject;
