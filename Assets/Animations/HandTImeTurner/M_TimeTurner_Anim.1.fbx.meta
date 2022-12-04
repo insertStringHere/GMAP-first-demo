@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: TimeTurnerOpen
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_HoloGram
+    second: {fileID: 2100000, guid: 1dc22b29ba2f46644a1a222119462004, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_TimeTurnerCorners
+    second: {fileID: 2100000, guid: 87373017e78cc1548b0e7e3938ecbf68, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
