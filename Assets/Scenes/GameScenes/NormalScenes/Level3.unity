@@ -213,8 +213,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3629162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.19, y: 17.3, z: -50.1471}
-  m_LocalScale: {x: 1, y: 5, z: 1.0941}
+  m_LocalPosition: {x: -4.19, y: 16.8867, z: -50.1471}
+  m_LocalScale: {x: 1, y: 4.1735, z: 1.0941}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7700,11 +7700,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225147454962, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: text.Array.data[0]
-      value: The temple is flooding with water.
+      value: We must hurry, the temple is flooding with water.
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225147454962, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: text.Array.data[1]
-      value: You must hurry before the room fills up!
+      value: If you rewind time while in the water, it will tear you apart, so do
+        not fall in.
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225147454962, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: text.Array.data[2]
@@ -7724,7 +7725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225712064573, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.089
+      value: 21.07
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225712064573, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16109,11 +16110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.616
+      value: -1.817
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.59
+      value: 9.496
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16174,6 +16175,46 @@ PrefabInstance:
     - target: {fileID: 1869004960016252962, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006599967
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03960002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06262671
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5064265
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50642604
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4934903
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4934898
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.482
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38ff69fba25b094994fd0e0e5f1b1a1, type: 3}
@@ -17983,6 +18024,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 336628750}
     m_Modifications:
+    - target: {fileID: 4214592481301012411, guid: d52a85c9b6aa8534c9b34f4878481eb9, type: 3}
+      propertyPath: Priority
+      value: 188
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214592481301012411, guid: d52a85c9b6aa8534c9b34f4878481eb9, type: 3}
+      propertyPath: m_Volume
+      value: 0.747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214592481301012411, guid: d52a85c9b6aa8534c9b34f4878481eb9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 122c86f1a39aab044b333aa2dd4f8797, type: 3}
     - target: {fileID: 5118371469264254782, guid: d52a85c9b6aa8534c9b34f4878481eb9, type: 3}
       propertyPath: m_Name
       value: Water_Death
@@ -19957,8 +20010,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825456278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.79, y: 12.55, z: -31.900002}
-  m_LocalScale: {x: 3.5, y: 1, z: 5}
+  m_LocalPosition: {x: -27.79, y: 12.4559, z: -31.900002}
+  m_LocalScale: {x: 3.5, y: 0.8118, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 336628750}
@@ -21236,7 +21289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225147454962, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: text.Array.data[2]
-      value: The scroll wheel can rewind time faster.
+      value: You can use the scroll wheel while rewinding time to rewind faster!
       objectReference: {fileID: 0}
     - target: {fileID: 8783776225712064572, guid: ec516342c90e1d34bae688f93064bd07, type: 3}
       propertyPath: m_Name
