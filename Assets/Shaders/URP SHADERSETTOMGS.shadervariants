@@ -77,6 +77,85 @@ ShaderVariantCollection:
     second:
       variants:
       - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
         passType: 0
   - first: {fileID: 0}
     second:
@@ -262,8 +341,35 @@ ShaderVariantCollection:
         passType: 8
       - keywords: 
         passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 13
       - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION
           _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION
+          _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
         passType: 13
       - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION
           _MAIN_LIGHT_SHADOWS _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
@@ -393,6 +499,9 @@ ShaderVariantCollection:
       - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS
         passType: 13
       - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS
           _METALLICSPECGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
         passType: 13
       - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS
@@ -426,6 +535,11 @@ ShaderVariantCollection:
       - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
         passType: 8
       - keywords: 
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
         passType: 13
       - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
         passType: 13
@@ -463,6 +577,8 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
     second:
       variants:
+      - keywords: FOG_EXP2 _SURFACE_TYPE_TRANSPARENT
+        passType: 0
       - keywords: _SURFACE_TYPE_TRANSPARENT
         passType: 0
       - keywords: 
@@ -482,7 +598,12 @@ ShaderVariantCollection:
       variants:
       - keywords: 
         passType: 8
+      - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
       - keywords: 
+        passType: 13
+      - keywords: FOG_EXP2 SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS
         passType: 13
       - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
         passType: 13
@@ -495,4 +616,26 @@ ShaderVariantCollection:
           _MAIN_LIGHT_SHADOWS
         passType: 13
       - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 49cf60bd71afbf64aa11ce8460493397, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: c3d966a3fc49c7e4baa3f61690c53c7b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
         passType: 13
