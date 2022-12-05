@@ -34,7 +34,7 @@ public class TimeCollectible : MonoBehaviour
             Debug.Log(zController.timeAllowance);
             zController.ReduceDeltaTime(timeRefreshAmount);
             
-            // Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     
     }
