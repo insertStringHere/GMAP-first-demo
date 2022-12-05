@@ -256,7 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRewindAnimator: {fileID: 6893394733587927493}
   handRewindAnimator: {fileID: 7075434355453031649}
-  transitionTime: 1
   goodParticlePrefab: {fileID: 442739919078911642}
   badParticlePrefab: {fileID: 2455928402056066325}
   rewindPrimary: 323
@@ -693,6 +692,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7299837984369537038}
     m_Modifications:
+    - target: {fileID: -8758680873018467593, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
     - target: {fileID: -8679921383154817045, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -761,6 +764,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6710986568308432539, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
     - target: {fileID: -4197558825855193282, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -773,6 +780,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4110313239157627141, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
+    - target: {fileID: -3179793880077337177, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
     - target: {fileID: -3012509431111622122, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -849,6 +864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: M_TimeTurner_Anim.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4154137497918037892, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
     - target: {fileID: 4272971837585477641, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -865,6 +884,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9eeeed224cf3ff044be93899fdf06323, type: 2}
+    - target: {fileID: 6493787306059512869, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
+    - target: {fileID: 7324280782098099217, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
+    - target: {fileID: 7540466311055671472, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dfc5edfd0ae7f5418c7d4f82a5aac59, type: 2}
+    - target: {fileID: 8689002026479552089, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09290bdd35bec3744819cfb6e78b3372, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 793296e3f0a2f0040a569b73bf06d43d, type: 3}
 --- !u!1 &144605041305784581 stripped
