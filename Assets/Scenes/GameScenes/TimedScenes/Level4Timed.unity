@@ -14,16 +14,16 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.35
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278144, g: 0.21590964, b: 0.29784742, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -305,6 +305,10 @@ PrefabInstance:
     - target: {fileID: 6041911793195179289, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
       propertyPath: m_Name
       value: PS_FireStationary  1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
@@ -1572,7 +1576,7 @@ Light:
   m_InnerSpotAngle: 30.729961
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2955,6 +2959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &343773589 stripped
@@ -3471,6 +3479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &412639559 stripped
@@ -3900,6 +3912,10 @@ PrefabInstance:
     - target: {fileID: 6041911793195179289, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
       propertyPath: m_Name
       value: PS_FireStationary  1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
@@ -4603,6 +4619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &525796023 stripped
@@ -4774,6 +4794,10 @@ PrefabInstance:
     - target: {fileID: 6041911793195179289, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
       propertyPath: m_Name
       value: PS_FireStationary  1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
@@ -6949,6 +6973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &851860761 stripped
@@ -7268,6 +7296,10 @@ PrefabInstance:
     - target: {fileID: 6041911793195179289, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
       propertyPath: m_Name
       value: PS_FireStationary  1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
@@ -7634,6 +7666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &933278032 stripped
@@ -7954,7 +7990,7 @@ Light:
   m_InnerSpotAngle: 30.729961
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -13514,6 +13550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &1049557387 stripped
@@ -14545,6 +14585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &1123965247 stripped
@@ -15054,6 +15098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &1151255116 stripped
@@ -15205,6 +15253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &1178612947 stripped
@@ -15274,6 +15326,10 @@ PrefabInstance:
     - target: {fileID: 6041911793195179289, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
       propertyPath: m_Name
       value: PS_FireStationary  1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
@@ -16371,6 +16427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_FireStationary  1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
 --- !u!4 &1296687785 stripped
@@ -16540,6 +16600,10 @@ PrefabInstance:
     - target: {fileID: 6041911793195179289, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
       propertyPath: m_Name
       value: PS_FireStationary  1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271576960790023349, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21df1ab0146641b4298ca41b66536d03, type: 3}
